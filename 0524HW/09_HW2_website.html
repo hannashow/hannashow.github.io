@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding:0;
+            border:0;
+            list-style: none;
+        }
+        .header{
+            height: 50px;
+            width: 100%;   
+            background-color: #282923;
+            color: white;
+            display: flex;
+            justify-content: center;
+        }
+        .info {
+            width: 100%;
+            font-size: 20px;
+            font-family:Microsoft JhengHei;
+            justify-content: space-between;
+            max-width: 1200px;
+            display: flex;
+        }
+        .info a{
+            height: 50px;
+            text-decoration: none;
+            color:white;
+        }
+        .info a:hover{
+            color: rgb(243, 164, 68);
+            transition:color 0.5s;
+        }
+        
+        .tel{   
+            width:50%;
+            display: flex;
+            font-size: 14px;
+            margin:15px;
+        }
+        .tel img{
+            height: 22px;
+        }
+        .socialMediaIcon{
+            display:flex;
+            width: 50%;
+            direction: rtl;
+            margin:15px;
+
+        }
+        .socialMediaIcon img{
+            width: 20px;
+            height: 20px;
+            background-color: white;
+            border-radius: 50%;
+            margin:2px;
+        }
+        .socialMediaIcon img:hover{
+            background-color:rgb(243, 164, 68);
+           
+        }
+        .banner{
+            height:100px;
+            margin: 20px;
+            display: flex;
+            justify-content: center;
+        }
+        .banner h1{
+            color:#504f4f;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .banner .layer{
+            width: 100%;
+            max-width: 1200px;
+            display:flex;
+            justify-content:space-between;
+            padding: 10px;
+        }
+        .banner .layer .logo{
+            margin:10px;
+            display: flex;
+        }
+        .banner .layer .logo img{
+            margin:auto;
+            padding-right: 10px;
+            height: 70%;
+        }
+        .banner .layer .ul{
+            display: flex;
+            padding:30px;
+        }
+        .banner .layer .ul a{
+            text-decoration: none;
+            color:#7a7a7a ;
+            font-size: 18px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            margin: 10px;  
+            border: 1px;
+        }
+        .banner .layer .ul .home a{
+            border-bottom: 2px solid rgb(243, 164, 68);
+        }
+        .banner .layer .ul a:hover{
+            border-bottom: 2px solid rgb(243, 164, 68);
+        }
+        .banner .layer .donation{
+            margin-top: 30px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+        .banner .layer .donation a{
+            text-decoration: none;
+            font-size: 14px;
+            padding: 10px 30px;
+            color:rgb(243, 164, 68);
+            border: 2px solid rgb(243, 164, 68);
+        }
+        .banner .layer .donation a:hover{
+            background-color: rgb(125, 194, 248);
+            color:white;
+            border: 2px solid rgb(125, 194, 248);
+        }
+        .donate{
+            width: 100%;
+            padding-top: 20px;
+            background-image: url("gray cat.jpeg");
+            background-repeat: no-repeat;
+            background-position: 0%;
+        }
+        .donate .sub_dodate{
+            max-width: 1200px;
+            display: flex;
+            justify-content: center;
+        }
+        .donate .yourHelp{
+            font-size: 70px;
+            color:rgb(125, 194, 248);
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+        .donate img{
+            width: 100%;
+        }
+        
+        .aboutUs {
+            max-width: 1400px;
+            width: 100%;
+            padding-top: 100px;
+            display: flex;
+            background-color: white;
+            position: relative;
+            margin:auto;
+        }
+       
+        h2{
+            font-size:32px;
+            color:#434f53
+        }
+        h3{
+            font-family: Microsoft JhengHei;
+            
+            font-size: 32px;
+            color:rgb(133, 194, 251)
+            
+        }
+        .howyoucanhelp-outer{
+            width:100%;
+            background-color: #ccc;
+        }
+        .howyoucanhelp-inner{
+            text-align: center;
+            margin:auto;
+        }
+        .img-group{
+            display: flex;
+        }
+        .img-group img{
+            width: 100%-10px;
+            padding:0 10px 0px 10px;
+        }
+        
+        @media screen and (min-width:1400px) {
+            .howyoucanhelp-inner{
+                max-width:1400px;
+            }
+            
+        }
+        
+    </style>
+</head>
+<body>
+    
+<div class="header">
+    <div class="info">
+        <div class="tel">
+            <img src="telephone.png" alt="telephone">
+            <span>Toll-free:</span>
+            <a href="#">(123)-456-7890</a>
+        </div>
+        <div class="socialMediaIcon">
+            <a href="#"><img src="linkedin 64x64.png" alt="linkedin"></a>
+            <a href="#"><img src="pinterest 96x96.png" alt="pinterest"></a>
+            <a href="#"><img src="facebook 96x96.png" alt="facebook"></a>   
+            <a href="#"><img src="twitter 96x96.png" alt="twitter"></a>
+        </div>
+    </div>
+    
+</div>
+
+<div class="banner">
+    <div class="layer">
+        <div class="logo">
+            <img src="asset 0.png" alt="logo">
+            <h1>Anilove</h1>
+        </div>
+        <div class="ul">
+            <li class="home"><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Event</a></li>
+            <li><a href="#">News</a></li>
+            <li><a href="#">Contacts</a></li>
+        </div>
+        <div class="donation"><a href="#">DONATE NOW!</a></div>
+    </div>
+</div>
+
+<div class="donate">
+    <div class="sub_donate">
+        <div class="text">
+            <h2>Animals Need</h2>
+            <p class="yourHelp">YOUR Help!</p>
+            <p>You can chip in with money & effort!</p>
+            <div class="donation"><a href="#">DONATE NOW!</a></div>
+        </div>
+        <div class="none"></div>
+    </div>
+    
+</div>
+
+<div class="aboutUs">
+    <div>
+        <img src="personAndDog.jpeg" alt="person and Dog">
+    </div>
+    <div class="text">
+        <h2>About Us</h2>
+        <h3>What Makes Us Care About Pets?</h3>
+        <h4>If it wasn’t for our founder’s childhood spent on a ranch in northern Texas, surrounded by domestic animals and pets all the time till she went to college – there might have been no Anilove animal shelter now. So as soon as she graduated with her Veterinary degree 12 years ago, she already knew what she will be doing for a living.<br><br>All in all, with thousands of animals saved off the streets and cared for every year, we hope to encourage much more pet adoptions to happen!</h4>
+    </div>
+</div>
+
+<div class="howyoucanhelp-outer">
+    <div class="howyoucanhelp-inner">
+        <h2>How you can help</h2>
+        <h3>There Are Countless Ways You Can Join In & Help Us!</h3>
+        <div class="img-group">
+            <div class="item"><img src="volunteer.jpeg" alt="volunteer"></div>
+            <div class="item"><img src="Adopt.jpeg" alt="adopt"></div>
+            <div class="item"><img src="sponsor.jpeg" alt="sponsor"></div>
+            <!--使用背景圖 background-img -->
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
