@@ -158,13 +158,22 @@
             justify-content: space-between;
             height:25%;
         }
+        .main .textPic .text li{
+            position: relative;
+            left:10px;
+        }
         .main .textPic .text li::before{
-            content: "\2022";
-            color:rgb(65, 65, 247);
+            content: " ";
+            background-color:rgb(65, 65, 247);
             font-weight: bold;
             display: inline-block;
-            width: 1em;
-            margin-left: 1em;
+            width: 8px;
+            height:8px;
+            border-radius: 50%;
+            left:-10px;
+            top:-2px;
+            position:relative;
+            
         }
         .main .textPic .text a{
             text-decoration: none;
