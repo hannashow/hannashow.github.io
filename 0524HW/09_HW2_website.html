@@ -7,7 +7,7 @@
     <title>Document</title>
     <style>
         *{
-            padding:0;
+            margin:0;
             border:0;
             list-style: none;
         }
@@ -85,10 +85,14 @@
             height: 100%;
             display: flex;
         }
+        
         .banner .layer .logo img{
             margin:auto;
             padding-right: 10px;
             padding:20px;
+        }
+        .banner .layer .logo h1{
+            margin: auto;
         }
         .banner .layer .ul{
             width: 40%;
@@ -162,13 +166,21 @@
             line-height: 1.1;
             margin: 0;
         }
+        .donate .donation{
+            margin-top: 50px;
+        }
         .donate .donation a{
             text-decoration: none;
             background-color: #ff9933;
             color:white;
-            padding: 15px 30px;
+            width: 100px;
+            padding: 25px 60px;
             font-family: 'Lato', sans-serif;
-            border-radius: 5px;
+            border-radius: 2px;
+            font-size: 14px;
+            font-weight: bold;
+            top: 50px;
+            
         }
         .donate .donation a:hover{
             background-color: black;
@@ -177,12 +189,15 @@
             display: flex;
             justify-content: center;
         }
-        .aboutUs {
-            max-width: 1400px;
+        .outerAboutus .aboutUs {
+            max-width: 1150px;
             width: 100%;
             display: flex;
             align-items: center;
+            margin-top: 50px;
+            
         }
+        
         .aboutUs .text a{
             padding:20px 50px;
             background-color:#ff9933;
@@ -207,6 +222,7 @@
             color:#7abee9;
             line-height: 1.5;
             margin: 0;
+            margin-bottom: 50px;
         }
         h4{
             font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
@@ -216,49 +232,58 @@
         }
         .howyoucanhelp-outer{
             width:100%;
-            background-color: #ccc;
+            background-color: rgb(249, 249, 249);
             display: flex;
-            justify-content: center;
         }
         .howyoucanhelp-inner{
             width: 100%;
-            max-width: 1000px;
+            max-width: 1150px;
             text-align: center;
             padding: 50px;
+            margin: auto;
         }
         .img-group{
-            max-width: 1400px;
+            max-width: 1150px;
             width: 100%;
             display: flex;
             justify-content:space-between;
-            height: 500px;
+            height: 450px;
             color:white;
             text-align: center;
+            margin: auto;
         }
         .img-group p{
-            top:60%;
-            position: relative;
+            text-align: center;
+            padding-top: 100%;
+            bottom:0%;
             font-size: 34px;
             font-family: 'Lato', sans-serif;
         }
+        .img-group p:hover{
+            color:#ff9933;
+        }
         .volunteer{
-            width: 33%;
-            background-size: 90%;
+            width: 32%;
+            background-size: 100%;
             background-image: url(volunteer.jpeg);
             background-repeat: no-repeat;
             background-position-x: center;
         }
+        .volunteer:hover{
+            background-color: #282923;
+            
+        }
         
         .adopt{
-            width: 33%;
-            background-size: 90%;
+            width: 32%;
+            background-size: 100%;
             background-image: url(Adopt.jpeg);
             background-repeat: no-repeat;
             background-position-x: center;
         }
         .sponsor{
-            width: 33%;
-            background-size: 90%;
+            width: 32%;
+            background-size: 100%;
             background-image: url(sponsor.jpeg);
             background-repeat: no-repeat;
             background-position-x: center;
@@ -315,8 +340,9 @@
             <h2>Animals Need</h2>
             <p class="yourHelp">YOUR Help!</p>
             <p style="margin: 0;font-family: 'Lato', sans-serif;color:#535353;font-size: 24px;line-height: 1.2;font-weight: 400;">You can chip in with money & effort!</p>
+            <div class="donation"><a href="#">DONATE NOW!</a></div>
         </div>
-        <div class="donation"><a href="#">DONATE NOW!</a></div>
+        
     </div>  
 </div>
 <div class="outerAboutus">
