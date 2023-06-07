@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;500;900&family=Work+Sans:wght@200&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        h1 {
+            font-size: 50px;
+            color:#f2efef;
+            font-weight: lighter;
+            display: block;
+            align-self: center;
+            padding: 10px;
+        }
+
+        h2 {
+            font-size: 26px;
+            font-weight: bold;
+            line-height: 36px;
+            color: #f2efef;
+        }
+
+        h3 {
+            color: rgb(202, 46, 46);
+            font-weight: bold;
+            padding-bottom: 10px;
+        }
+
+        h3::after {
+            content: ' ';
+            display: inline-block;
+            vertical-align: middle;
+            width: 450px;
+            height: 1.5px;
+            background-color: rgb(202, 46, 46);
+
+        }
+
+        h4 {
+            display: inline-block;
+            padding: 2px 10px;
+            color: #f2efef;
+            background-color: black;
+            font-size: 18px;
+            font-weight: normal;
+            border-radius: 3px;
+            margin: 5px 0;
+        }
+
+        h5 {
+            font-size: 16px;
+            color: #8b8a8a;
+        }
+
+        h5::before {
+            content: ' ';
+            width: 1em;
+            height: 1em;
+            background-color: rgb(202, 46, 46);
+            display: inline-block;
+            border-radius: 50%;
+            transform: scale(0.3);
+        }
+
+        p {
+            font-size: 20px;
+            line-height: 30px;
+        }
+        .title{
+            display: flex;
+            justify-items: center;
+        }
+        .main {
+            width: 960px;
+            position: relative;
+            /* height: 700px; */
+            margin: auto;
+            margin-top: 100px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        section:nth-child(even) {
+            width: 960px;
+            position: relative;
+            margin: auto;
+            margin-top: 100px;
+            /* height: 100%; */
+            display: flex;
+            flex-direction: row-reverse;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        span{
+            writing-mode: vertical-lr;
+            font-size: 100px;
+            font-family: 'Noto Sans TC', sans-serif;
+            font-family: 'Work Sans', sans-serif;
+            font-weight: 200;
+            line-height: 1;
+            color:#f2efef;
+            align-self: center;
+        }
+
+        .introduce {
+            width: 350px;
+            /* position:absolute; */
+            z-index: 2;
+            left: 0;
+            margin-bottom: 200px;
+        }
+
+        .introduce .title {
+            background-color: rgb(202, 46, 46);
+            height: 120px;
+        }
+
+        .introduce .text {
+            background-color: black;
+            color: #fff;
+            padding: 20px
+        }
+
+        .pic {
+            position: absolute;
+            width: 700px;
+            top: 130px;
+            right: 80px;
+            z-index: 1;
+        }
+
+        .pic-even {
+            position: absolute;
+            width: 700px;
+            top: 130px;
+            left: 0px;
+            z-index: 1;
+        }
+
+        .pic a {
+            position: relative;
+            /* width: 300px; */
+        }
+
+        .pic img[src*="adv"] {
+            width: 700px;
+        }
+
+        .pic img[src*="video-icon"] {
+            position: absolute;
+            transform: translateX(-80%);
+            display: inlie-block;
+            bottom: 200px;
+        }
+
+        .pic-even img[src*="video-icon"] {
+            position: absolute;
+            left:35px;
+            display: inlie-block;
+            bottom: 200px;
+        }
+
+        .new-change {
+            padding: 20px;
+            background-color: #f1f1f1;
+            width: 67%;
+            /* position: absolute; */
+            z-index: 2;
+            margin-left: 50px;
+
+        }
+
+        .main a {
+            background-color: bisque;
+            width: 800px;
+
+        }
+
+        .back {
+            width: 450px;
+            height: 270px;
+            background-color: #f1f1f1;
+            /* position: absolute; */
+            z-index: 1;
+            margin-top: 50px;
+        }
+        .back-even{
+            width: 450px;
+            height: 400px;
+            background-color: #f1f1f1;
+            z-index: 1;
+            position: relative;
+            left:350px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <article class="five-advantage">
+        <section class="first-advantage main">
+            <div class="introduce">
+                <div class="title">
+                    <span class="num">01</span>
+                    <h1>操控樂趣</h1>
+                </div>
+                <div class="text">
+                    <h2>人人滿意的駕駛體驗</h2>
+                    <p>透過最佳重量分配，實現平順起步，直線穩定加速，過彎同時保持車身平穩，帶給駕駛更靈敏的道路反饋，享受隨心馳騁的行駛快感。</p>
+                </div>
+            </div>
+            <div class="back"></div>
+            <div class="new-change">
+                <h3>因為我們做了這些革新</h3>
+                <h4>低重心設計</h4>
+                <h5>透過低重心設計，不僅呈現更低伏的外觀，更能減少車身側傾，保持高速行駛穩定性。</h5>
+                <h4>車體剛性強化</h4>
+                <h5>車身結構採用超高強度鋼材，提高車輛穩定性，同時藉由雷射強化焊接技術，大幅增加焊點數量，提升車身抗扭剛性，強化駕馭穩定性及安全性。</h5>
+                <h4>四輪獨立懸吊</h4>
+                <h5>搭載全新四輪獨立懸吊設定，透過懸吊的高承載強度，保持輪胎抓地力，同時兼顧轉向靈敏度與清晰路感回饋，提升駕馭樂趣。</h5>
+            </div>
+            <div class="pic">
+                <a href="https://www.toyota.com.tw/tech_TNGA.aspx#/advantages"><img src="advantage-1.png"
+                        alt="red-car"><img src="video-icon.png" alt="video-icon"></a>
+            </div>
+        </section>
+
+        <section class="second-advantage main">
+                <div class="introduce introduce-even">
+                    <div class="title" style="justify-content: flex-end;">
+                        <h1>安全守護</h1>
+                        <span class="num">02</span>
+                    </div>
+                    <div class="text">
+                        <h2>行車更安心的高剛性車體</h2>
+                        <p>您的愛車會妥善保護您，強悍穩固的車身可使您安全無虞。世界級的安全功能讓您輕鬆自如享受旅程，毫無後顧之憂。</p>
+                    </div>
+                </div>
+                <div class="back back-even"></div>
+                <div class="new-change new-change-even">
+                    <h3>因為我們做了這些革新</h3>
+                    <h4>主動安全</h4>
+                    <h5>可以先進的TSS系統主動偵測路況，輔助駕駛判斷路況並維持行車安全。</h5>
+                    <h4>被動安全</h4>
+                    <h5>堅固的高剛性車體，使用熱沖壓材料的高強度抗扭鋼板，強化座艙對意外事故的保護力。</h5>
+                </div>
+                <div class="pic pic-even">
+                    <a href="https://www.toyota.com.tw/tech_TNGA.aspx#/advantages"><img src="advantage-2.png"
+                            alt="car-safe"><img src="video-icon.png" alt="video-icon"></a>
+                </div>
+        </section>
+
+        <section class="third-advantage main">
+                <div class="introduce">
+                    <div class="title">
+                        <span class="num">03</span>
+                        <h1>乘坐舒適</h1>
+                    </div>
+                    <div class="text">
+                        <h2>令人放鬆舒適的車室空間</h2>
+                        <p>車室空間設計著重人體工學，透過方向盤，踏板等位置優化，追求更舒適的駕駛位置，並以新型座椅設計，提高座椅包覆性，致力實現長途駕駛疲勞的舒適駕馭體驗。</p>
+                    </div>
+                </div>
+                <div class="back"></div>
+                <div class="new-change">
+                    <h3>因為我們做了這些革新</h3>
+                    <h4>駕駛位置最佳化</h4>
+                    <h5>針對駕駛位置進行徹底的修改，讓駕駛者可如同握手般自然且舒適地操控方向盤。</h5>
+                    <h4>駕馭視野佳</h4>
+                    <h5>考量駕駛坐進車內的高度，透過前擋風玻璃位置的調整，達到盲區極小化，使駕駛視野更開闊，同步提升駕取安全。</h5>
+                    <h4>更寧靜的車室</h4>
+                    <h5>採用最新三層結構的隔音材料，與引擎，變速箱的零件改革，將座艙的震動抑制在最小限度，提供乘客舒適安靜的感受。</h5>
+                </div>
+                <div class="pic">
+                    <a href="https://www.toyota.com.tw/tech_TNGA.aspx#/advantages"><img src="advantage-3.png"
+                            alt="sit"><img src="video-icon.png" alt="video-icon"></a>
+                </div>
+        </section>
+        <section class="forth-advantage main">
+                <div class="introduce introduce-even">
+                    <div class="title" style="justify-content: flex-end;">
+                        <h1>以人為本</h1>
+                        <span class="num">04</span>
+                    </div>
+                    <div class="text">
+                        <h2>使用者導向的貼心設計</h2>
+                        <p>藉由高度人性化的介面整合，傳遞車輛資訊，豐富日常駕駛體驗。從提升油耗表現到行李廂空間最適化，均細心考量，更加貼近使用者真正所需與習慣，並給予即時回應</p>
+                    </div>
+                </div>
+                <div class="back back-even"></div>
+                <div class="new-change new-change-even">
+                    <h3>因為我們做了這些革新</h3>
+                    <h4>優異油耗表現</h4>
+                    <h5>以Corolla Sport為例，更強勁的高效引擎將熱效率提升至40％，達到世界級水準，屡屡突破燃油效率新境界。</h5>
+                    <h4>行李箱空間最適化</h4>
+                    <h5>以第四代Prius為例，透過將電池位置移到後座下方，讓行李箱擁有更大的空間。</h5>
+                </div>
+                <div class="pic pic-even">
+                    <a href="https://www.toyota.com.tw/tech_TNGA.aspx#/advantages"><img src="advantage-4.png"
+                            alt="sweet-design"><img src="video-icon.png" alt="video-icon"></a>
+                </div>
+        </section>
+
+        <section class="fifth-advantage main">
+                <div class="introduce">
+                    <div class="title">
+                        <span class="num">05</span>
+                        <h1>引以為傲</h1>
+                    </div>
+                    <div class="text">
+                        <h2>極具吸引力的精心設計</h2>
+                        <p>TNGA車款擁有讓人忍不住回頭的新潮外觀，讓駕駛充滿自信的駕馭快感！不僅讓車主能展現個人風格，能讓擁有者都能引以為傲。</p>
+                    </div>
+                </div>
+                <div class="back"></div>
+                <div class="new-change">
+                    <h3>因為我們做了這些革新</h3>
+                    <h4>設計概念</h4>
+                    <h5>TNGA低重心設計，不僅呈現更低伏的運動化外觀，更講究高品質內裝的一致性。</h5>
+                    <h4>環保概念</h4>
+                    <h5>為了對環境保護盡一份心力，我們全面提升傳統引擎，變速箱與油電複合動力的動力效能</h5>
+                </div>
+                <div class="pic">
+                    <a href="https://www.toyota.com.tw/tech_TNGA.aspx#/advantages"><img src="advantage-5.png"
+                            alt="best"><img src="video-icon.png" alt="video-icon"></a>
+                </div>
+        </section>
+    </article>
+</body>
+</html>
