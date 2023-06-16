@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .card {
+            border: 1px solid #aaa;
+            box-sizing: border-box;
+            width: 100%;
+            padding: 15px;
+            margin: 15px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .card_pic {
+            width: 50%;
+            display: flex;
+            
+        }
+
+        .card_pic img {
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .card_text {
+            align-self: center;
+            padding: 10px;
+            background-color: pink;
+            width: 50%;
+            box-sizing: border-box;
+        }
+
+        @media screen and (min-width:768px) {
+            .card {
+                width: calc(100%/3 - 30px);
+                display: block;
+            }
+
+            .card_pic, .card_text {
+                width: 100%;
+            }
+        }
+
+        @media screen and (min-width:1024px) {
+            .card {
+                width: calc(25% - 30px);
+            }
+        }
+
+        @media screen and (min-width:1200px) {
+
+            .container {
+                max-width: 1200px;
+                margin: auto;
+            }
+
+            .card:first-child {
+                width: 100%;
+            }
+
+            .card_three_column {
+                width: calc(100%/3 - 30px);
+            }
+
+            .card_two_column {
+                width: calc(50% - 30px);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div class="container">
+        <div class="card">
+            <div class="card_pic">
+                <img src="https://picsum.photos/300/200/?random=10">
+            </div>
+            <div class="card_text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam autem sed delectus,
+                distinctio natus</div>
+        </div>
+        <div class="card  card_three_column">
+            <div class="card_pic">
+                <img src="https://picsum.photos/300/200/?random=10">
+            </div>
+            <div class="card_text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam autem sed delectus,
+                distinctio natus</div>
+        </div>
+        <div class="card  card_three_column">
+            <div class="card_pic">
+                <img src="https://picsum.photos/300/200/?random=10">
+            </div>
+            <div class="card_text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam autem sed delectus,
+                distinctio natus</div>
+        </div>
+        <div class="card card_three_column">
+            <div class="card_pic">
+                <img src="https://picsum.photos/300/200/?random=10">
+            </div>
+            <div class="card_text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam autem sed delectus,
+                distinctio natus</div>
+        </div>
+        <div class="card card_two_column">
+            <div class="card_pic">
+                <img src="https://picsum.photos/300/200/?random=10">
+            </div>
+            <div class="card_text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam autem sed delectus,
+                distinctio natus</div>
+        </div>
+        <div class="card card_two_column">
+            <div class="card_pic">
+                <img src="https://picsum.photos/300/200/?random=10">
+            </div>
+            <div class="card_text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam autem sed delectus,
+                distinctio natus</div>
+        </div>
+    </div>
+
+</body>
+
+</html>
