@@ -11,43 +11,19 @@ img{
     padding-right: var(--col-gap);
 }
 
-.row {
+/* .row {
     display: flex;
     flex-wrap: wrap;
     margin-left: calc(var(--col-gap * -1));;
     margin-right: calc(var(--col-gap * -1));;
-}
+} */
 
-[class*="cols-"] > .col{
-    padding-left: 15px;
-    padding-right: 15px;
-    box-sizing: border-box;
-}
 [class*="col-"] {
     box-sizing: border-box;
     padding:var(--col-gap);
     width: calc(100% / 12 * var(--col-num));
 }
 
-/* 父層class row-cols-x */
-.row-cols-1 > .col{
-    width: 100%;
-}
-.row-cols-2 > .col{
-    width: 50%;
-}
-.row-cols-3 > .col{
-    width: 33.33%;
-}
-.row-cols-4 > .col{
-    width: 25%;
-}
-.row-cols-5 > .col{
-    width: 20%;
-}
-.row-cols-6 > .col{
-    width: 16.66%;
-}
 /* 負責column */
 .col-1 {--col-num:1}
 .col-2 {--col-num:2}
@@ -68,24 +44,6 @@ img{
 }
 
 @media screen and (min-width:768px) {
-    .row-cols-md-1 > .col{
-        width: 100%;
-    }
-    .row-cols-md-2 > .col{
-        width: 50%;
-    }
-    .row-cols-md-3 > .col{
-        width: 33.33%;
-    }
-    .row-cols-md-4 > .col{
-        width: 25%;
-    }
-    .row-cols-md-5 > .col{
-        width: 20%;
-    }
-    .row-cols-md-6 > .col{
-        width: 16.66%;
-    }
 
     .col-md-1 {--col-num:1}
     .col-md-2 {--col-num:2}
@@ -102,24 +60,6 @@ img{
 }
 
 @media screen and (min-width:1024px) {
-    .row-cols-lg-1 > .col{
-        width: 100%;
-    }
-    .row-cols-lg-2 > .col{
-        width: 50%;
-    }
-    .row-cols-lg-3 > .col{
-        width: 33.33%;
-    }
-    .row-cols-lg-4 > .col{
-        width: 25%;
-    }
-    .row-cols-lg-5 > .col{
-        width: 20%;
-    }
-    .row-cols-lg-6 > .col{
-        width: 16.66%;
-    }
 
     .col-lg-1 {--col-num:1}
     .col-lg-2 {--col-num:2}
@@ -136,24 +76,7 @@ img{
 }
 
 @media screen and (min-width:1200px) {
-    .row-cols-xl-1 > .col{
-        width: 100%;
-    }
-    .row-cols-xl-2 > .col{
-        width: 50%;
-    }
-    .row-cols-xl-3 > .col{
-        width: 33.33%;
-    }
-    .row-cols-xl-4 > .col{
-        width: 25%;
-    }
-    .row-cols-xl-5 > .col{
-        width: 20%;
-    }
-    .row-cols-xl-6 > .col{
-        width: 16.66%;
-    }
+
 
     .col-xl-1 {--col-num:1}
     .col-xl-2 {--col-num:2}
