@@ -82,7 +82,7 @@
         }
 
         function createTbody() {
-            for (i = 0; i < marketingShare.data.length; i++) {
+            for (let i = 0; i < marketingShare.data.length; i++) {
                 //新增row
                 let tr = document.createElement("tr");
                 //因為markingShare.data是陣列包物件,物件不能用foreach拿出來,先把每一筆資料value轉成陣列
