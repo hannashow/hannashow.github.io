@@ -11,6 +11,18 @@
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .three-picture-animation{
+            width: 200px;
+            height: 300px;
+            background-color: pink;
+        }
+        .three-picture-animation .three-pics{
+            width: 600px;
+        }
         .main-body li::marker {
             color: blue;
         }
@@ -137,8 +149,10 @@
                                 <p class="card-text"><small class="text-body-secondary">＊無需綁定信用卡提供付款資訊</small></p>
                             </div>
                         </div>
-                        <div class="col-md-6 overflow-hidden">
-                            <img src="/pic1.webp" class="img-fluid" alt="...">
+                        <div class="three-picture-animation col-md-6 overflow-hidden">
+                            <div class="three-pics">
+                                <img src="/pic1.webp" class="img-fluid" alt="...">
+                            </div>
                         </div>
                     </div>
                 </div>

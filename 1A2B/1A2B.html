@@ -5,38 +5,71 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>1A2B</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <style>
-        *{
+        * {
             padding: 0;
             margin: 0;
         }
-        .container{
-            text-align: center;
-            width: 600px;
-            margin: 30px auto;
 
+        h1 {
+            text-align: center;
         }
-        .container>*{
+
+        .container {
+            text-align: center;
+            width: 500px;
+            margin: 30px auto;
+            border: 3px solid rgb(150, 184, 242);
+           border-radius: 30px;
+            height: 500px;
+            background-image: linear-gradient(to top, rgb(128, 188, 230), transparent);
+        }
+
+        .container>* {
             margin: 10px 0px;
         }
-        button{
+
+        button {
             padding: 5px;
+        }
+        .input-group{
+           width: 200px;
+           margin: auto;
+        }
+        .container #playRecord{
+            background-color: rgb(222, 237, 247);
+            opacity: 0.5;
+            height: 45%;
+            border-radius: 10px;
         }
 
     </style>
 </head>
 
 <body>
+
     <div class="container">
-        <label for="">請輸入4位不重複數字:</label>
-        <input id="theGuessNumber" type="text" value="">
-        <button id="guess">猜猜看</button>
-        <br>
-        <button id="showAnswer">看答案</button>
-        <button id="clearRecord">這局重新開始</button>
-        <button id="restart">換密碼</button>
+        <h1>1A2B Game</h1>
+        
+        <div class="btn-group" role="group" aria-label="Basic outlined example">
+            <button type="button" class="btn btn-outline-primary" id="startGame">開始遊戲</button>
+            <button type="button" class="btn btn-outline-primary" id="clearRecord" disabled>這局重新開始</button>
+            <button type="button" class="btn btn-outline-primary" id="restart" disabled>放棄重來</button>
+            <button type="button" class="btn btn-outline-primary" id="showAnswer" disabled>看答案</button>
+        </div>
+
+
+        <div>請輸入4位不重複數字:</div>
+        <div class="input-group mb-3">
+            <input type="text" class="form-control border-primary bg-transparent" placeholder="" aria-label="four-numbers" aria-describedby="nguess" id="theGuessNumber" value="" disabled>
+            <button class="btn btn-outline-primary" type="button" id="guess" disabled>猜!</button>
+        </div>
+
+        <!-- <button id="restart">換密碼</button> -->
         <div id="guessTimes">猜題次數 : 0</div>
-        <div id="playRecord"></div>
+        <div id="playRecord" class="overflow-auto"></div>
     </div>
 
 
@@ -50,10 +83,12 @@
 
 
 
-        
-        let theGuessNumberBtn = document.querySelector("#theGuessNumber");
 
+        let theGuessNumberInput = document.querySelector("#theGuessNumber");
 
+        let startGameBtn=document.querySelector("#startGame");
+        startGameBtn.addEventListener("click",startGame)
+         
         let guessBtn = document.querySelector("#guess");
         guessBtn.addEventListener("click", guess)
 
@@ -65,6 +100,7 @@
             playRecord.innerHTML = "";
             guessTimes = 0;
             guessTimesDOM.innerHTML = `猜題次數 : ${guessTimes}`;
+            clearInput();
         });
 
         let restartBtn = document.querySelector("#restart");
@@ -73,20 +109,21 @@
         let playRecord = document.querySelector("#playRecord");
 
         let guessTimesDOM = document.querySelector("#guessTimes");
+
         window.onload = function () {
-            createFourNumbers();
+            // createFourNumbers();
 
         }
 
 
         function guess() {
-            let theGuessNumberArr = theGuessNumberBtn.value.split("");
-            let theGuessNumStr = theGuessNumberBtn.value;
+            let theGuessNumberArr = theGuessNumberInput.value.split("");
+            let theGuessNumStr = theGuessNumberInput.value;
             let checkSameNumber = new Set(theGuessNumberArr); //把重複的字刪除
             let checkSameNumArr = [...checkSameNumber];
 
             //檢查是否輸入的是4位數字
-            if (isNaN((theGuessNumberBtn.value))) {
+            if (isNaN((theGuessNumberInput.value))) {
                 alert("請輸入整數數字");
                 clearInput();
             }
@@ -112,28 +149,36 @@
 
                 for (let i = 0; i < 4; i++) {
                     if (parseInt(checkSameNumArr[i]) == ansArray[i]) {
-                        console.log['ya']
                         countsA++;;
                     }
                     else if (ansArray.includes(parseInt(checkSameNumArr[i]))) {
-                        countsB += 1;
+                        countsB++;
                     }
                 }
                 guessTimes++;
                 console.log(`${theGuessNumStr} : ${countsA}A${countsB}B`);
                 guessTimesDOM.innerHTML = `猜題次數 : ${guessTimes}`;
                 playRecord.append(`${theGuessNumStr} : ${countsA}A${countsB}B`, document.createElement("br"));
-                if(countsA==4){
+                if (countsA == 4) {
                     alert(`恭喜答對~~~答案就是${theGuessNumStr}`)
                 }
                 clearInput();
-
+                theGuessNumberInput.focus();
             }
 
 
         }
 
-
+        function startGame(){
+            createFourNumbers();
+            clearRecordBtn.disabled=false;
+            showAnswerBtn.disabled=false;
+            restartBtn.disabled=false;
+            guessBtn.disabled=false;
+            theGuessNumberInput.disabled=false;
+            startGameBtn.disabled=true;
+            theGuessNumberInput.focus();
+        }
 
 
 
@@ -149,28 +194,41 @@
             }
 
             answer = ansArray.join("");
-            guessTimes = 0;
-            guessTimesDOM.innerHTML = `猜題次數 : ${guessTimes}`;
+            // guessTimes = 0;
+            // guessTimesDOM.innerHTML = `猜題次數 : ${guessTimes}`;
 
         }
 
         function showAnswer() {
             alert(`答案是 ${answer}`);
+            clearInput();
         }
         function restart() {
             playRecord.innerHTML = ""; //清空紀錄
             ansArray.length = 0;
-            createFourNumbers(); //產生新的4位數字
-            alert("請開始猜新密碼!");
+            alert("請按開始遊戲!");
             guessTimes = 0;
-            guessTimesDOM.innerHTML = `猜題次數 : {guessTimes}`;
+            guessTimesDOM.innerHTML = `猜題次數 : ${guessTimes}`;
+            startGameBtn.disabled=false;
+            clearRecordBtn.disabled=true;
+            showAnswerBtn.disabled=true;
+            restartBtn.disabled=true;
+            guessBtn.disabled=true;
+            clearInput();
+            theGuessNumberInput.disabled=true;
+            
+            
+
         }
         function clearInput() {
-            theGuessNumberBtn.value = "";
+            theGuessNumberInput.value = "";
+            theGuessNumberInput.focus();
         }
 
     </script>
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
 
 </body>
 
