@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>XHR iPad.json</h1>
+    <button id="btnGetJSON">Request JSON</button>
+    <div id="msg"></div>
+    <script>
+        const url = "https://raw.githubusercontent.com/hannashow/FileStorage/main/ipadAir2023";
+        let msg = document.getElementById("msg");
+
+        window.onload = function () {
+            document.querySelector("#btnGetJSON").addEventListener("click", requestIpadJson);
+        }
+        let ipadArray = [];
+        let ipadArray2=[];
+        let xhr = new XMLHttpRequest();
+
+        function requestIpadJson(uri) {
+            xhr.onload = function () {
+                ipadString=this.response;
+                console.log(ipadString); //印出來是typeof string
+
+                ipadArray2=JSON.parse(this.response);
+                console.log(ipadArray2); //parse回來是array
+                
+                let query1=ipadArray2.filter(item => item.price==23200);
+                console.log(query1);
+                console.log('.'.repeat(80));
+
+                let query2=ipadArray2.filter(item => item.storage=="256GB" && item.network=="Wi-Fi");
+                console.log(query2);
+                console.log('.'.repeat(80));
+            }
+            xhr.open("GET", url);
+            // xhr.responseType="json";
+            // xhr.responseType="text";
+            xhr.send();
+        }
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+</head>
+
+<body>
+    <h1>XHR iPad.json</h1>
+    <button id="btnGetJSON">Request JSON</button>
+    <div id="msg" class="row"></div>
+    <script>
+        const url = "https://raw.githubusercontent.com/hannashow/FileStorage/main/ipadAir2023";
+        let msg = document.getElementById("msg");
+
+        window.onload = function () {
+            document.querySelector("#btnGetJSON").addEventListener("click", requestIpadJson);
+        }
+        let ipadArray = [];
+        let xhr = new XMLHttpRequest();
+        let br = document.createElement("br")
+        let allCardString = "";
+        function requestIpadJson(uri) {
+            xhr.onload = function () {
+                ipadArray=this.response;
+                ipadArray.forEach((product, index) => {
+                    let cardString = getCardString(product);
+                    allCardString += cardString;
+                });
+                msg.innerHTML = allCardString;
+            }
+            xhr.open("GET", url);
+            xhr.responseType = "json";
+            xhr.send();
+        }  
+        function getCardString(ipad) {
+            let cardString = `
+            <div class="card" style="width: 18rem;">
+                <img src="/${ipad.picture}" class="card-img-top" alt="${ipad.id}">
+                <div class="card-body">
+                    <h5 class="card-title">${ipad.id}</h5>
+                    <p class="card-text">
+                        顏色: ${ipad.color}<br>容量: ${ipad.storage}<br>network: ${ipad.network}<br>價格:NT${ipad.price}
+                    </p>
+                </div>
+            </div>
+            `;
+            return cardString;
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+</body>
+
+</html>

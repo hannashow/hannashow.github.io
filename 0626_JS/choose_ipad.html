@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            font-size: 12px;
+        }
+
+        h1 {
+            font-weight: bold;
+            font-size: 48px;
+        }
+
+        small {
+            font-size: 10px;
+            font-weight: bold;
+            margin-left: -4px;
+        }
+
+        sup {
+
+            font-size: 10px;
+            font-weight: bold;
+        }
+
+        h3 {
+            width: 100%;
+            font-size: 24px;
+            font-weight: bold;
+
+        }
+
+        h3 span {
+            font-size: 24px;
+            font-weight: bold;
+            color: rgb(150, 150, 150);
+        }
+        h4{
+            width: 100%;
+        }
+        p{
+            font-size: 20px;
+        }
+
+        .pic img {
+            width: 90%;
+        }
+
+        .header {
+            width: 100%;
+        }
+
+        .container {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 50px;
+        }
+
+        .container .pic {
+            width: 65%;
+        }
+
+        .container .chosen {
+            width: 35%;
+            height: 80vh;
+            padding: 15px;
+        }
+
+        .choose-color,
+        .choose-storage {
+            position: relative;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between
+        }
+
+        input {
+            position: absolute;
+            display: none;
+        }
+
+        .choose-color img {
+            width: 30px;
+            margin: 5px;
+        }
+
+        .card {
+            border: 3px solid #ccc;
+            border-radius: 15px;
+            padding: 0;
+            width: calc(50% - 10px);
+            height: 100px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .card label {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .choose-network .card {
+            width: 100%;
+            margin: auto;
+            margin: 20px auto;
+            text-align: start;
+        }
+        label{
+            width: 100%;
+            height: 100%;
+            padding: 15px;
+        }
+        .choose-network label{
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: row;
+            justify-content:space-between;
+            align-content: center;
+        }
+
+        input:checked+.card {
+            border-color: rgb(32, 100, 235);
+        }
+
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>購買iPad Air</h1>
+            <p class="finalPrice">NT$19,900</p>
+        </div>
+
+        <div class="pic">
+            <img class="showIpadPic" src="./space-gray.jpg" alt="">
+        </div>
+        <div class="chosen overflow-auto">
+            <div class="choose-color">
+                <h3 class="col-12">外觀。 <span>挑選喜愛的顏色。</span></h3>
+                <input class="form-check-input input-color" type="radio" name="choose-one-color" id="space-gray"
+                    value="space-gray" checked>
+                <div class="card color-card gray-color form-check">
+                    <label class="form-check-label" for="space-gray">
+                        <img src="./gray-circle.png" alt="gray-circle">
+                        <div>太空灰色</div>
+                    </label>
+                </div>
+                <input class="form-check-input input-color" type="radio" name="choose-one-color" id="blue" value="blue">
+                <div class="card color-card blue-color form-check">
+                    <label class="form-check-label" for="blue">
+                        <img src="./blue-circle.png" alt="blue-circle">
+                        <div>藍色</div>
+                    </label>
+                </div>
+                <input class="form-check-input input-color" type="radio" name="choose-one-color" id="pink" value="pink">
+                <div class="card color-card pink-color form-check">
+                    <label class="form-check-label" for="pink">
+                        <img src="./pink-circle.png" alt="pink-circle">
+                        <div>粉紅色</div>
+                    </label>
+                </div>
+                <input class="form-check-input input-color" type="radio" name="choose-one-color" id="purple"
+                    value="purple">
+                <div class="card color-card purple-color form-check">
+                    <label class="form-check-label" for="purple">
+                        <img src="./purple-circle.png" alt="purple-circle">
+                        <div>紫色</div>
+                    </label>
+                </div>
+                <input class="form-check-input input-color" type="radio" name="choose-one-color" id="starlight"
+                    value="starlight">
+                <div class="card color-card starlight-color form-check">
+                    <label class="form-check-label" for="starlight">
+                        <img src="./starlight-circle.png" alt="starlight-circle">
+                        <div>星光色</div>
+                    </label>
+                </div>
+            </div>
+            <div class="choose-storage">
+                <h3>儲存裝置。<span>選擇需要的儲存空間大小。</span></h3>
+                <input class="form-check-input input-storage" type="radio" name="choose-one-storage" id="small-storage"
+                    value="64GB" checked>
+                <div class=" card storage-card small-GB form-check">
+                    <label class="form-check-label" for="small-storage">
+                        <h4>64
+                            <small>GB<sup>1</sup></small>
+
+                        </h4>
+                        <div>NT$19,900 起</div>
+                    </label>
+                </div>
+                <input class="form-check-input input-storage" type="radio" name="choose-one-storage" id="large-storage"
+                    value="256GB">
+                <div class="card storage-card large-GB form-check">
+                    <label class="form-check-label" for="large-storage">
+                        <h4>256
+                            <small>GB<sup>1</sup></small>
+                        </h4>
+                        <div>NT$24,900 起</div>
+                    </label>
+                </div>
+            </div>
+            <div class="choose-network">
+                <h3>連線能力。<span>選擇連線方式。</span></h3>
+
+                <input class="form-check-input input-netWork" type="radio" name="choose-one-wifi" id="net-wifi"
+                    value="Wi-Fi" checked>
+                <div class="card network-card net-wifi form-check">
+                    <label class="form-check-label" for="net-wifi">
+                        <h4>WiFi</h4>
+                        <div class="wifi-info col-8">每部iPad都可連接到Wi-Fi網路，使你能保持連線</div>
+                        <div class="netWork-wifi-price">NT$19,900起</div>
+                    </label>
+                </div>
+                <input class="form-check-input input-netWork" type="radio" name="choose-one-wifi" id="net-both"
+                    value="Cellular">
+                <div class="card network-card net-both form-check">
+                    <label class="form-check-label" for="net-both">
+                        <h4>WiFi + 行動網路</h4>
+                        <div class="cell-network col-8">Wi-Fi+行動網路機型讓你在無法使用Wi-Fi時也能進行連線</div>
+                        <div class="network-cellular-price">NT$24,900起</div>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // const macUrl=
+        const url = 'https://raw.githubusercontent.com/hannashow/FileStorage/main/ipadAir2023';
+        // const iphoneUrl=
+        let _color = "space-gray";
+        let _storage = "64GB";
+        let _netWork = "Wi-Fi"
+        let ipadArray = [];
+        // let container=document.querySelector(".container");
+        let showIpadPic = document.querySelector(".showIpadPic");
+        let finalPrice = document.querySelector(".finalPrice");
+        let finalWifiPrice=document.querySelector(".netWork-wifi-price");
+        let finalCellularPrice=document.querySelector(".network-cellular-price");
+        let filterIpadArray = [{ "id": "A001", "color": "太空灰色", "price": 19900, "storage": "64GB", "network": "Wi-Fi", "picture": "space-gray.jpg" }];
+        let filterWifiArray=[];
+        let filterCellularArray=[];
+
+        //取得陣列格式json資料
+        window.onload = function () {
+            getIpadJson();
+            ipadSelected();
+        }
+        //篩選color,storage,network; 
+
+        //印出價格和圖片
+        document.querySelectorAll(".input-color").forEach(x => {
+            x.addEventListener("click", colorSelected.bind(event, x.value));
+            x.addEventListener("click", ipadSelected);
+        });
+        document.querySelectorAll(".input-storage").forEach(x => {
+            x.addEventListener("click", storageSelected.bind(event, x.value));
+            x.addEventListener("click", ipadSelected);
+            x.addEventListener("click", PriceForNetWorkType)
+        });
+        document.querySelectorAll(".input-netWork").forEach(x => {
+            x.addEventListener("click", netWorkSelected.bind(event, x.value));
+            x.addEventListener("click", ipadSelected);
+        });
+
+
+        function getIpadJson() {
+            let xhr = new XMLHttpRequest();
+            xhr.onload = function () {
+                ipadArray = JSON.parse(this.responseText);
+            };
+            xhr.open("GET", url);
+            xhr.send();
+
+        }
+
+        function colorSelected(value) {
+            _color = value;
+        };
+
+        function storageSelected(value) {
+            _storage = value;
+        };
+        function netWorkSelected(value) {
+            _netWork = value;
+        };
+
+        function PriceForNetWorkType(){
+            filterWifiArray = ipadArray.filter(x => x.storage == _storage && x.network == "Wi-Fi");
+            finalWifiPrice.innerText="NT$"+ filterWifiArray[0].price.toLocaleString();
+
+            filterCellularArray = ipadArray.filter(x => x.storage == _storage && x.network == "Cellular");
+            finalCellularPrice.innerText="NT$"+filterCellularArray[0].price.toLocaleString();
+        }
+        function ipadSelected() {
+            showIpadPic.src = `./${_color}.jpg`
+            filterIpadArray = ipadArray.filter(x => x.storage == _storage && x.network == _netWork)
+            finalPrice.innerText = "NT$" + filterIpadArray[0].price.toLocaleString();
+        }
+        
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
