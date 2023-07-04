@@ -1,0 +1,18 @@
+[
+    { "type": "MacBookAir13吋M2晶片", "screenSize":13, "color": "午夜色", "price": 35900, "storage": "256GB", "picture": "macbook-air-midnight.jfif" },
+    { "type": "MacBookAir13吋M2晶片", "screenSize":13, "color": "星光色", "price": 35900, "storage": "256GB", "picture": "macbook-air-starlight.jfif" },
+    { "type": "MacBookAir13吋M2晶片", "screenSize":13, "color": "太空灰色", "price": 35900, "storage": "256GB", "picture": "macbook-air-spacegray.jfif" },
+    { "type": "MacBookAir13吋M2晶片", "screenSize":13, "color": "銀色", "price": 35900, "storage": "256GB", "picture": "macbook-air-silver.jfif" },
+    { "type": "MacBookAir13吋M2晶片", "screenSize":13, "color": "午夜色", "price": 44900, "storage": "512GB", "picture": "macbook-air-midnight.jfif" },
+    { "type": "MacBookAir13吋M2晶片", "screenSize":13, "color": "星光色", "price": 44900, "storage": "512GB", "picture": "macbook-air-starlight.jfif" },
+    { "type": "MacBookAir13吋M2晶片", "screenSize":13, "color": "太空灰色", "price": 44900, "storage": "512GB", "picture": "macbook-air-spacegray.jfif" },
+    { "type": "MacBookAir13吋M2晶片", "screenSize":13, "color": "銀色", "price": 44900, "storage": "512GB", "picture": "macbook-air-silver.jfif" },
+    { "type": "MacBookAir15吋M2晶片", "screenSize":15, "color": "午夜色", "price": 42900, "storage": "256GB", "picture": "macbook-air-midnight.jfif" },
+    { "type": "MacBookAir15吋M2晶片", "screenSize":15, "color": "星光色", "price": 42900, "storage": "256GB", "picture": "macbook-air-starlight.jfif" },
+    { "type": "MacBookAir15吋M2晶片", "screenSize":15, "color": "太空灰色", "price": 42900, "storage": "256GB", "picture": "macbook-air-spacegray.jfif" },
+    { "type": "MacBookAir15吋M2晶片", "screenSize":15, "color": "銀色", "price": 42900, "storage": "256GB", "picture": "macbook-air-silver.jfif" },
+    { "type": "MacBookAir15吋M2晶片", "screenSize":15, "color": "午夜色", "price": 48900, "storage": "512GB", "picture": "macbook-air-midnight.jfif" },
+    { "type": "MacBookAir15吋M2晶片", "screenSize":15, "color": "星光色", "price": 48900, "storage": "512GB", "picture": "macbook-air-starlight.jfif" },
+    { "type": "MacBookAir15吋M2晶片", "screenSize":15, "color": "太空灰色", "price": 48900, "storage": "512GB", "picture": "macbook-air-spacegray.jfif" },
+    { "type": "MacBookAir15吋M2晶片", "screenSize":15, "color": "銀色", "price": 48900, "storage": "512GB", "picture": "macbook-air-silver.jfif" }
+]
