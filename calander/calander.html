@@ -7,122 +7,173 @@
     <title>Bootstrap demo</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+        .container{
+            width: 100%;
+            margin: auto;
+        }
+        .clander-title{
+            color: rgb(0, 100, 50);
+        }
+        .choose-month{
+            color: rgb(0, 70, 0) !important;
+        }
+        table{
+            width: 100%;
+            border:2px solid #ccc;
+            
+        }
+        th{
+            text-align: center;
+            background-color: blanchedalmond !important;
+            color: rgb(166, 100, 0) !important;
+        }
+        tr{
+            border: 2px solid blanchedalmond !important;
+        }
+        td{
+            width: calc(100% / 7);
+            height: 80px;
+            background-color: rgb(255, 249, 240) !important;
+            border-color: blanchedalmond !important;
+            color: rgb(250, 150, 0) !important;
+        }
+        li{
+            background-color: pink;
+        }
+    </style>
 </head>
 
 <body>
 
     <div class="container">
-        <h1>我的行事曆</h1>
-        <p>
-        <h3>yyyy-mm</h3>
-        </p>
-        <div class="btn-group mb-3" role="group" aria-label="Basic mixed styles example">
-            <button type="button" class="btn btn-danger" id="lastMonth">上個月</button>
-            <button type="button" class="btn btn-warning" id="thisMonth">這個月</button>
-            <button type="button" class="btn btn-success" id="nextMonth">下個月</button>
+        <h1 class="clander-title text-center m-3">我的行事曆</h1>
+        <div class="choose-month text-center">
+            <button type="button" class="btn btn-light col-1" id="lastMonth">
+                <i class="fa-solid fa-angle-left"></i>
+            </button>
+            <h3 class="d-inline m-5">yyyy-mm</h3>
+            <button type="button" class="btn btn-light col-1" id="nextMonth">
+                <i class="fa-solid fa-angle-right"></i>
+            </button>
         </div>
+        <div class="chooseToday d-flex justify-content-end " >
+            <button type="button " class="btn btn-secondary btn-sm" id="thisMonth">今天</button>
+        </div>
+        
+        
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th scope="col">日</th>
+                <th scope="col">一</th>
+                <th scope="col">二</th>
+                <th scope="col">三</th>
+                <th scope="col">四</th>
+                <th scope="col">五</th>
+                <th scope="col">六</th>
+            </tr>
+        </thead>
+        <tbody>
 
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th scope="col">日</th>
-                    <th scope="col">一</th>
-                    <th scope="col">二</th>
-                    <th scope="col">三</th>
-                    <th scope="col">四</th>
-                    <th scope="col">五</th>
-                    <th scope="col">六</th>
-                </tr>
-            </thead>
-            <tbody>
+        </tbody>
+    </table>
+    <p>**新增行程請點擊兩次</p>
+    </div>
+    
 
-            </tbody>
-        </table>
+    <!-- 新增行程 Modal -->
+    <!-- Button trigger modal -->
+    <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addModal">
+        新增行程
+    </button> -->
 
-        <!-- 新增行程 Modal -->
-        <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addModal">
-            新增行程
-        </button>
-
-        <!-- Modal -->
-        <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="addModalLabel">新增行程</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    <!-- Modal -->
+    <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="addModalLabel">新增行程</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- yyyy-mm--dd-->
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">日期</span>
+                        <input type="text" class="form-control" placeholder="" aria-label=""
+                            aria-describedby="basic-addon1" id="add-addon1" disabled>
                     </div>
-                    <div class="modal-body">
-                        <!-- yyyy-mm--dd-->
-                        <div class="input-group mb-3">
-                            <span class="input-group-text" >日期</span>
-                            <input type="text" class="form-control" placeholder="" aria-label=""
-                                aria-describedby="basic-addon1" id="add-addon1" disabled>
-                        </div>
-                        <!-- 標題 -->
-                        <div class="input-group mb-3">
-                            <span class="input-group-text">標題</span>
-                            <input type="text" class="form-control" placeholder="" aria-label=""
-                                aria-describedby="basic-addon1" id="add-addon2">
-                        </div>
-                        <!-- 內容 -->
-                        <div class="input-group mb-3">
-                            <span class="input-group-text" >內容</span>
-                            <input type="text" class="form-control" placeholder="" aria-label=""
-                                aria-describedby="basic-addon1" id="add-addon3">
-                        </div>
+                    <!-- 標題 -->
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">標題</span>
+                        <input type="text" class="form-control" placeholder="" aria-label=""
+                            aria-describedby="basic-addon1" id="add-addon2">
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">關閉</button>
-                        <button type="button" class="btn btn-primary"id="add-addon4">新增</button>
+                    <!-- 內容 -->
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">內容</span>
+                        <input type="text" class="form-control" placeholder="" aria-label=""
+                            aria-describedby="basic-addon1" id="add-addon3">
                     </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">關閉</button>
+                    <button type="button" class="btn btn-primary" id="add-addon4">新增</button>
                 </div>
             </div>
         </div>
+    </div>
 
-        <!-- 編輯行程 Modal -->
-        <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editModal">
-            編輯行程
-        </button>
+    <!-- 編輯行程 Modal -->
+    <!-- Button trigger modal -->
+    <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editModal">
+        編輯行程
+    </button> -->
 
-        <!-- Modal -->
-        <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="editModalLabel">編輯行程</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    <!-- Modal -->
+    <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="editModalLabel">編輯行程</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- yyyy-mm--dd-->
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">日期</span>
+                        <input type="text" class="form-control" placeholder="" aria-label=""
+                            aria-describedby="basic-addon1" id="edit-addon1" disabled>
                     </div>
-                    <div class="modal-body">
-                        <!-- yyyy-mm--dd-->
-                        <div class="input-group mb-3">
-                            <span class="input-group-text" >日期</span>
-                            <input type="text" class="form-control" placeholder="" aria-label=""
-                                aria-describedby="basic-addon1" id="edit-addon1" disabled>
-                        </div>
-                        <!-- 標題 -->
-                        <div class="input-group mb-3">
-                            <span class="input-group-text" >標題</span>
-                            <input type="text" class="form-control" placeholder="" aria-label=""
-                                aria-describedby="basic-addon1" id="edit-addon2">
-                        </div>
-                        <!-- 內容 -->
-                        <div class="input-group mb-3">
-                            <span class="input-group-text" >內容</span>
-                            <input type="text" class="form-control" placeholder="" aria-label=""
-                                aria-describedby="basic-addon1" id="edit-addon3">
-                        </div>
+                    <!-- 標題 -->
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">標題</span>
+                        <input type="text" class="form-control" placeholder="" aria-label=""
+                            aria-describedby="basic-addon1" id="edit-addon2">
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">關閉</button>
-                        <button type="button" class="btn btn-primary" id="edit-addon4">更新行程</button>
-                        <button type="button" class="btn btn-danger" id="edit-addon5">刪除</button>
+                    <!-- 內容 -->
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">內容</span>
+                        <input type="text" class="form-control" placeholder="" aria-label=""
+                            aria-describedby="basic-addon1" id="edit-addon3">
                     </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">關閉</button>
+                    <button type="button" class="btn btn-primary" id="edit-addon4">更新行程</button>
+                    <button type="button" class="btn btn-danger" id="edit-addon5">刪除</button>
                 </div>
             </div>
         </div>
+    </div>
 
     </div>
 
@@ -142,8 +193,9 @@
         //宣告
         let today = new Date();
         let year = today.getFullYear();
-        let month = today.getMonth(); //1月是0,2月是1...
-        
+        let month = today.getMonth(); //1月是0,2月是1...;所以month+1才是這個月
+
+
         //DOM
         const lastMonthBtn = document.getElementById("lastMonth")//上個月
         const thisMonthBtn = document.getElementById("thisMonth");//這個月
@@ -152,16 +204,16 @@
 
         const tbodyDOM = document.querySelector("tbody")
 
-        const addAddOn1DOM=document.getElementById('add-addon1');
-        const addAddOn2DOM=document.getElementById('add-addon2');
-        const addAddOn3DOM=document.getElementById('add-addon3');
-        const addAddOn4Btn=document.getElementById('add-addon4');
+        const addAddOn1DOM = document.getElementById('add-addon1');
+        const addAddOn2DOM = document.getElementById('add-addon2');
+        const addAddOn3DOM = document.getElementById('add-addon3');
+        const addAddOn4Btn = document.getElementById('add-addon4');
 
-        const EditAddOn1DOM=document.getElementById('edit-addon1');
-        const EditAddOn2DOM=document.getElementById('edit-addon2');
-        const EditAddOn3DOM=document.getElementById('edit-addon3');
-        const EditAddOn4Btn=document.getElementById('edit-addon4');
-        const EditAddOn5Btn=document.getElementById('edit-addon5');
+        const EditAddOn1DOM = document.getElementById('edit-addon1');
+        const EditAddOn2DOM = document.getElementById('edit-addon2');
+        const EditAddOn3DOM = document.getElementById('edit-addon3');
+        const EditAddOn4Btn = document.getElementById('edit-addon4');
+        const EditAddOn5Btn = document.getElementById('edit-addon5');
 
         //事件
         lastMonthBtn.addEventListener("click", function () {
@@ -195,34 +247,70 @@
         })
 
         //新增Modal的新增按鈕
-        addAddOn4Btn.addEventListener('click',function(){
-            let key=(addAddOn1DOM.value).split('-').join('');
-            console.log(key);
-            let obj={
-                title:addAddOn2DOM.value,
-                content:addAddOn3DOM.value
+        addAddOn4Btn.addEventListener('click', function () {
+            let key = addAddOn1DOM.value;
+            // let key = (addAddOn1DOM.value).split('-').join('');//2023-7-5轉成陣列[2023,7,5]再轉回字串202375
+            console.log(key);//key是字串
+            let obj = {
+                title: addAddOn2DOM.value,
+                taskContent: addAddOn3DOM.value
             }
 
             // 找localstorage
-
-            let dataArray=[];
-            let data=getLocalStorage(key);
-            if(data==null){
-                dataArray.push(obj)
-            }else{
-                dataArray=data;
-                dataArray.push(obj);
+            let dataArray = [];
+            let data = getLocalStorage(key);//data是物件格式
+            if (data == null) {
+                dataArray.push(obj);//把物件放進dataArray
+            } else {
+                dataArray = data;//如果data有資料(物件), 就把data先放進陣列
+                dataArray.push(obj);//再把這回合要加的資料一並加到陣列
             }
-            setLocalStorage(key,dataArray)
-            myModalAdd.hide();
+            setLocalStorage(key, dataArray)//重新set一次key & value (修改)
+
+            myModalAdd.hide(); //關掉modal
+            renderDate();
         })
 
-        EditAddOn4Btn.addEventListener('click',function(){
-
+        //更新行程
+        EditAddOn4Btn.addEventListener('click', function (e) {
+            let localStorageKey = EditAddOn1DOM.value;//key是當天的日期
+            let getAllTaskArray = getLocalStorage(localStorageKey);//找到當天的所有行程
+            let localStorageIdx=EditAddOn1DOM.dataset.thetask;
+            console.log(`"idx:"${localStorageIdx}`)
+            // let theTitle = EditAddOn2DOM.value;
+            
+            getAllTaskArray[localStorageIdx].title=EditAddOn2DOM.value;
+            getAllTaskArray[localStorageIdx].taskContent=EditAddOn3DOM.value;
+            setLocalStorage(localStorageKey, getAllTaskArray);//再重新寫入localStorage
+            
+            renderDate();
+            myModalEdit.hide(); //關掉modal
         });
 
-        EditAddOn5Btn.EditAddOn5Btn('click',function(){
+        //刪除行程
+        EditAddOn5Btn.addEventListener('click', function () {
 
+            let localStorageKey = EditAddOn1DOM.value;//key是當天的日期
+            let getAllTaskArray = getLocalStorage(localStorageKey);//找到當天的所有行程
+            console.log(getAllTaskArray);
+            let theTitle = EditAddOn2DOM.value;
+            let localStorageIdx=EditAddOn1DOM.dataset.thetask;
+            // let idx = 0;
+            // getAllTaskArray.forEach((item, index) => {
+            //     let keyArray = Object.values(item);
+            //     if (keyArray[0] === EditAddOn2DOM.value) {
+            //         return idx = index
+            //     };
+            // });
+            getAllTaskArray.splice(localStorageIdx, 1);//刪除localStorage中的值陣列裡的指定index
+            console.log(getAllTaskArray);
+            setLocalStorage(localStorageKey, getAllTaskArray);//再重新寫入localStorage
+         
+            if (getAllTaskArray.length<1) { //如果localStorage中當天的值已經是空陣列了,就刪除這天的key&value
+                removeLocalStorage(localStorageKey);
+            };
+            renderDate();
+            myModalEdit.hide();
         });
 
         window.onload = function () {
@@ -237,72 +325,84 @@
 
             //第一天到底是禮拜幾? 禮拜1是1, 禮拜日是0
             //如果是禮拜6, 代表前面有6天會是上個月的
-            let dayOfMonthFirstDay = new Date(year, month, 1).getDay()
-            console.log('第一天是禮拜' + dayOfMonthFirstDay)
+            let dayOfMonthFirstDay = new Date(year, month, 1).getDay(); //得到這個月第一天是星期幾
+            console.log('第一天是禮拜' + dayOfMonthFirstDay);
             //這個月有幾天?
             //用下個月的0號, 代表這個月的最後一天, 也是這個月的天數
-            let dayCountsOfMonth = new Date(year, month + 1, 0).getDate()
-            console.log(dayCountsOfMonth + '天')
+            let dayCountsOfMonth = new Date(year, month + 1, 0).getDate();
+            console.log(dayCountsOfMonth + '天');
 
             //這個月有幾個禮拜
             //要先知道 (這個月加上 上個月放到本月)的天數
             let allDays = dayCountsOfMonth + dayOfMonthFirstDay;
             console.log(allDays);
-            let weeks = Math.ceil(allDays / 7);
-            console.log(weeks)
+            let weeks = Math.ceil(allDays / 7);//天數除以7再無條件進位,得到有幾週(幾個row)
+            console.log(weeks);
 
             let day = 1;
             // tr
-            for (let i = 0; i < weeks; i++) {
+            for (let i = 0; i < weeks; i++) {//要做weeks週
                 let trDOM = document.createElement('tr');
-                for (let j = 0; j < 7; j++) {
+                for (let j = 0; j < 7; j++) { //要做7天
                     let tdDOM = document.createElement('td');
 
                     //i=0 表示第一週
-                    if (i === 0 && j < dayOfMonthFirstDay) {
+                    if (i === 0 && j < dayOfMonthFirstDay) { //第一週要留上個月的空格
                         //第一天是禮拜六
-                        tdDOM.innerText = "上個月日期"
+                        tdDOM.innerText = ".";
                     } else {
                         if (day <= dayCountsOfMonth) {
-                            tdDOM.innerText = day;
+                            tdDOM.innerText = day;//把日期數字放進格子中
+                            tdDOM.setAttribute("id", `${year}-${month + 1}-${day}`);//在td加上id:當天日期
+                            tdDOM.addEventListener("dblclick", tdClickFN.bind(null, year, month, day));//點到格子跳出modal新增task
+                            let taskUL = document.createElement("ul");
 
-                            tdDOM.addEventListener("click",tdClickFN.bind(null,year,month,day))
+                            let taskArray = JSON.parse(localStorage.getItem(`${year}-${month + 1}-${day}`))
+                            // console.log(taskArray);
 
+                            if (taskArray !== null) {
+                                taskArray.forEach((task, index) => {
+                                    let newTask = document.createElement("li");
+                                    newTask.innerText = task.title;
+                                    newTask.setAttribute("data-thetask", index);
+                                    
 
+                                    newTask.addEventListener("click", function () {
+                                        EditAddOn1DOM.setAttribute("data-thetask",index);
+                                        EditAddOn1DOM.value = tdDOM.id;
+                                        EditAddOn2DOM.value = newTask.innerText;
+                                        EditAddOn3DOM.value = taskArray[index].taskContent;
+                                        myModalEdit.show();
+                                    });
+                                    taskUL.append(newTask);
+                                });
+                                tdDOM.append(taskUL);
+                            }
                             day++;
-                        } else {
-                            tdDOM.innerText = '下個月日期';
-                        }
-
+                        } else { tdDOM.innerText = '.'; }
                     }
-
                     trDOM.append(tdDOM);
-
                 }
                 tbodyDOM.append(trDOM);
-            }
-        }
+            };
+        };
 
-
-
-
-
-        function tdClickFN(year,month,day){
-
-            addAddOn1DOM.value=`${year}-${month+1}-${day}`
-            myModalAdd.show();
-            //取日期 標題 內容
+        function tdClickFN(year, month, day) {
+            addAddOn1DOM.value = `${year}-${month + 1}-${day}`;//把日期放進modal視窗的日期
+            myModalAdd.show();//顯示modal視窗
         }
         //取得 localstorage 資料
-        function getLocalStorage(key){
-            let data=JSON.parse(localStorage.getItem(key));
-
+        function getLocalStorage(key) {
+            let data = JSON.parse(localStorage.getItem(key));//取得key這天的value
             return data
-
         }
 
-        function setLocalStorage(key,value){
+        function setLocalStorage(key, value) {
             localStorage.setItem(key, JSON.stringify(value))//放字串
+        }
+
+        function removeLocalStorage(key) {
+            localStorage.removeItem(key);
         }
     </script>
 </body>
