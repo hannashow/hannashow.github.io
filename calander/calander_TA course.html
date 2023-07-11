@@ -275,7 +275,7 @@
         EditAddOn4Btn.addEventListener('click', function (e) {
             let localStorageKey = EditAddOn1DOM.value;//key是當天的日期
             let getAllTaskArray = getLocalStorage(localStorageKey);//找到當天的所有行程
-            let localStorageIdx=EditAddOn1DOM.dataset.thetaskidx;//從data自訂屬性抓index
+            let localStorageIdx=EditAddOn1DOM.dataset.thetaskidx;
             console.log(`"idx:"${localStorageIdx}`)
             // let theTitle = EditAddOn2DOM.value;
             
@@ -369,10 +369,12 @@
 
                                     newTask.addEventListener("click", function (e) {
                                         myModalEdit.show();
+                                        
                                         EditAddOn1DOM.setAttribute("data-thetaskidx",index);
                                         EditAddOn1DOM.value = tdDOM.id;
                                         EditAddOn2DOM.value = newTask.innerText;
                                         EditAddOn3DOM.value = taskArray[index].taskContent;
+                                        
                                         e.stopPropagation();
                                     });
                                     taskUL.append(newTask);
