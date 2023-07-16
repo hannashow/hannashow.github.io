@@ -1,0 +1,571 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        .container {
+            margin: 20px;
+        }
+
+        i {
+            font-size: 30px;
+        }
+
+        [box-id] {
+            border: 2px solid #ccc;
+            height: 80px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: 0.3s;
+        }
+
+        [box-id].active {
+            border: solid 5px red;
+            box-shadow: 0 0 20px pink;
+            transition: 0s;
+        }
+
+        #msg {
+            font-size: 30px;
+            text-align: center;
+            border: 1px solid peru;
+        }
+
+        .score-list {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            text-align: center;
+        }
+
+        .start-game {
+            text-align: center;
+        }
+
+        .score-icon {
+            /* border: 1px solid pink; */
+            height: 60px;
+        }
+
+        .scoreboard {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        input {
+            display: none;
+        }
+
+        input:checked+label {
+            border: 2px solid coral;
+            padding: 5px;
+        }
+
+        label {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div box-id="1" class="col-1 active"></div>
+            <div box-id="2" class="col-1"></div>
+            <div box-id="3" class="col-1"></div>
+            <div box-id="4" class="col-1"></div>
+            <div box-id="5" class="col-1"></div>
+            <div box-id="6" class="col-1"></div>
+            <div box-id="7" class="col-1"></div>
+            <div box-id="8" class="col-1"></div>
+            <div box-id="9" class="col-1"></div>
+            <div box-id="10" class="col-1"></div>
+            <div box-id="11" class="col-1"></div>
+            <div box-id="12" class="col-1"></div>
+        </div>
+        <div class="row">
+            <div box-id="32" class="col-1"></div>
+            <div class="col-10 score-list">
+                <div class="form-check score-icon">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="cat-card" value="cat">
+                    <label class="form-check-label" for="cat-card">
+                        <i class="fa-solid fa-cat" style="color:red;"></i>
+                        <p>+5</p>
+                    </label>
+                </div>
+
+                <div class="form-check score-icon">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="dog-card" value="dog">
+                    <label class="form-check-label" for="dog-card">
+                        <i class="fa-solid fa-dog" style="color: #eb9824;"></i>
+                        <p>+3</p>
+                    </label>
+                </div>
+
+                <div class="form-check score-icon">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="bug-card" value="bug">
+                    <label class="form-check-label" for="bug-card">
+                        <i class="fa-solid fa-bugs" style="color: #149452;"></i>
+                        <p>-10</p>
+                    </label>
+                </div>
+
+                <div class="form-check score-icon">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="dove-card" value="dove">
+                    <label class="form-check-label" for="dove-card">
+                        <i class="fa-solid fa-dove" style="color:#729ce4;"></i>
+                        <p>+0</p>
+                    </label>
+                </div>
+
+                <div class="form-check score-icon">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="fish-card" value="fish">
+                    <label class="form-check-label" for="fish-card">
+                        <i class="fa-solid fa-fish" style="color:#42f5a2;"></i>
+                    <p>-5</p>
+                    </label>
+                </div>
+
+                <div class="form-check score-icon">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="shrimp-card" value="shrimp">
+                    <label class="form-check-label" for="shrimp-card">
+                        <i class="fa-solid fa-shrimp" style="color:#e82121;"></i>
+                    <p>+2</p>
+                    </label>
+                </div>
+
+            </div>
+            <div box-id="13" class="col-1"></div>
+        </div>
+        <div class="row">
+            <div box-id="31" class="col-1"></div>
+            <div class="col-10" id="msg">
+                玩一次-2, 押注押對+20
+            </div>
+            <div box-id="14" class="col-1"></div>
+        </div>
+        <div class="row">
+            <div box-id="30" class="col-1"></div>
+            <div class="col-10 scoreboard">
+                Score:
+                <div class="thisRoundScore col-4">
+                    0
+                </div>
+                Total Score:
+                <div class="totalScore col-4">
+                    0
+                </div>
+            </div>
+            <div box-id="15" class="col-1"></div>
+        </div>
+        <div class="row">
+            <div box-id="29" class="col-1"></div>
+            <div class="col-10 start-game">
+                <button class="btn btn-primary">Start</button>
+            </div>
+            <div box-id="16" class="col-1"></div>
+        </div>
+        <div class="row">
+            <div box-id="28" class="col-1"></div>
+            <div box-id="27" class="col-1"></div>
+            <div box-id="26" class="col-1"></div>
+            <div box-id="25" class="col-1"></div>
+            <div box-id="24" class="col-1"></div>
+            <div box-id="23" class="col-1"></div>
+            <div box-id="22" class="col-1"></div>
+            <div box-id="21" class="col-1"></div>
+            <div box-id="20" class="col-1"></div>
+            <div box-id="19" class="col-1"></div>
+            <div box-id="18" class="col-1"></div>
+            <div box-id="17" class="col-1"></div>
+        </div>
+    </div>
+
+    <script>
+        let brickData = [{
+            id: '1',
+            color: 'red',
+            icon: 'fa-solid fa-cat',
+            target: function () {
+                return 'cat';
+            }
+        },
+        {
+            id: '2',
+            color: '#eb9824',
+            icon: 'fa-solid fa-dog',
+            target: function () {
+                return 'dog';
+            }
+        },
+        {
+            id: '3',
+            color: '#149452',
+            icon: 'fa-solid fa-bugs',
+            target: function () {
+                return 'bug';
+            }
+        },
+        {
+            id: '4',
+            color: '#729ce4',
+            icon: 'fa-solid fa-dove',
+            target: function () {
+                return 'dove';
+            }
+        },
+        {
+            id: '5',
+            color: '#42f5a2',
+            icon: 'fa-solid fa-fish',
+            target: function () {
+                return 'fish';
+            }
+        },
+        {
+            id: '6',
+            color: '#e82121',
+            icon: 'fa-solid fa-shrimp',
+            target: function () {
+                return 'shrimp';
+            }
+        },
+        {
+            id: '7',
+            color: 'red',
+            icon: 'fa-solid fa-cat',
+            target: function () {
+                return 'cat';
+            }
+        },
+        {
+            id: '8',
+            color: '#eb9824',
+            icon: 'fa-solid fa-dog',
+            target: function () {
+                return 'dog';
+            }
+        },
+        {
+            id: '9',
+            color: '#149452',
+            icon: 'fa-solid fa-bugs',
+            target: function () {
+                return 'bug';
+            }
+        },
+        {
+            id: '10',
+            color: '#729ce4',
+            icon: 'fa-solid fa-dove',
+            target: function () {
+                return 'dove';
+            }
+        },
+        {
+            id: '11',
+            color: '#42f5a2',
+            icon: 'fa-solid fa-fish',
+            target: function () {
+                return 'fish';
+            }
+        },
+        {
+            id: '12',
+            color: '#e82121',
+            icon: 'fa-solid fa-shrimp',
+            target: function () {
+                return 'shrimp';
+            }
+        },
+        {
+            id: '13',
+            color: 'red',
+            icon: 'fa-solid fa-cat',
+            target: function () {
+                return 'cat';
+            }
+        },
+        {
+            id: '14',
+            color: '#eb9824',
+            icon: 'fa-solid fa-dog',
+            target: function () {
+                return 'dog';
+            }
+        },
+        {
+            id: '15',
+            color: '#149452',
+            icon: 'fa-solid fa-bugs',
+            target: function () {
+                return 'bug';
+            }
+        },
+        {
+            id: '16',
+            color: '#729ce4',
+            icon: 'fa-solid fa-dove',
+            target: function () {
+                return 'dove';
+            }
+        },
+        {
+            id: '17',
+            color: '#42f5a2',
+            icon: 'fa-solid fa-fish',
+            target: function () {
+                return 'fish';
+            }
+        },
+        {
+            id: '18',
+            color: '#e82121',
+            icon: 'fa-solid fa-shrimp',
+            target: function () {
+                return 'shrimp';
+            }
+        },
+        {
+            id: '19',
+            color: 'red',
+            icon: 'fa-solid fa-cat',
+            target: function () {
+                return 'cat';
+            }
+        },
+        {
+            id: '20',
+            color: '#eb9824',
+            icon: 'fa-solid fa-dog',
+            target: function () {
+                return 'dog';
+            }
+        },
+        {
+            id: '21',
+            color: '#149452',
+            icon: 'fa-solid fa-bugs',
+            target: function () {
+                return 'bug';
+            }
+        },
+        {
+            id: '22',
+            color: '#729ce4',
+            icon: 'fa-solid fa-dove',
+            target: function () {
+                return 'dove';
+            }
+        },
+        {
+            id: '23',
+            color: '#42f5a2',
+            icon: 'fa-solid fa-fish',
+            target: function () {
+                return 'fish';
+            }
+        },
+        {
+            id: '24',
+            color: '#e82121',
+            icon: 'fa-solid fa-shrimp',
+            target: function () {
+                return 'shrimp';
+            }
+        },
+        {
+            id: '25',
+            color: 'red',
+            icon: 'fa-solid fa-cat',
+            target: function () {
+                return 'cat';
+            }
+        },
+        {
+            id: '26',
+            color: '#eb9824',
+            icon: 'fa-solid fa-dog',
+            target: function () {
+                return 'dog';
+            }
+        },
+        {
+            id: '27',
+            color: '#149452',
+            icon: 'fa-solid fa-bugs',
+            target: function () {
+                return 'bug';
+            }
+        },
+        {
+            id: '28',
+            color: '#729ce4',
+            icon: 'fa-solid fa-dove',
+            target: function () {
+                return 'dove';
+            }
+        },
+        {
+            id: '29',
+            color: '#42f5a2',
+            icon: 'fa-solid fa-fish',
+            target: function () {
+                return 'fish';
+            }
+        },
+        {
+            id: '30',
+            color: '#e82121',
+            icon: 'fa-solid fa-shrimp',
+            target: function () {
+                return 'shrimp';
+            }
+        },
+        {
+            id: '31',
+            color: 'red',
+            icon: 'fa-solid fa-cat',
+            target: function () {
+                return 'cat';
+            }
+        },
+        {
+            id: '32',
+            color: '#eb9824',
+            icon: 'fa-solid fa-dog',
+            target: function () {
+                return 'dog';
+            }
+        }
+
+        ]
+
+        let steps = 0;//剩餘的步數
+        let allSteps = 0;//全部的步數
+        let currentIndex = 0;//目前走到哪一格
+
+        let speed;//速率(越大代表越慢??)
+
+        let guessCard;
+
+        let score = document.querySelector(".thisRoundScore");
+        let totalScore = document.querySelector(".totalScore");
+
+        let bricks = document.querySelectorAll('[box-id]');
+        bricks = Array.from(bricks).sort((a, b) => {  //id從小排到大
+            return a.getAttributeNode('box-id').value - b.getAttributeNode('box-id').value
+        });
+        console.log(bricks);
+        bricks.forEach((x, index) => {
+            let id = index + 1;
+            let data = brickData.find(x => x.id == id);
+            let icon = document.createElement('i');
+            icon.setAttribute('class', data.icon);
+            icon.style.color = data.color;
+            x.append(icon);
+        })
+
+        //Start Button
+        document.querySelector('button').addEventListener('click', function () {
+            totalScore.innerText=parseInt(totalScore.innerText)-2;
+            speed = 30;
+
+            let random = Math.floor(Math.random() * brickData.length) + 1;
+            console.log(random);
+            steps = random + (2 * bricks.length); //加號後面的算式是為了呈現多跑幾圈才走到獎項
+            allSteps = steps;
+            turnAround();
+        });
+
+        function turnAround() {
+            bricks[currentIndex].classList.remove('active');
+            currentIndex++;
+            if (currentIndex >= bricks.length) {
+                currentIndex = 0;
+            }
+            bricks[currentIndex].classList.add('active');
+            steps--;
+
+            //一般版本
+            if (steps > 0) {
+                setTimeout(turnAround, speed);
+            }
+            else {
+                //跑完了
+                ShowResultAndCalScore()
+            }
+
+            //變速版本
+            // if (steps > 0) {
+            //     setTimeout(turnAround, speed);
+
+            //     //當剩下1/3時,減速度
+            //     if (steps < Math.floor((allSteps / 3))) {
+            //         speed += 7;
+            //     }
+            // }
+            // else {
+            //     //跑完了
+            //     ShowResultAndCalScore()
+            // }
+        }
+
+        document.querySelectorAll('input').forEach(x=>{
+            x.addEventListener('click',cardSelected.bind(event,x.value))
+        })
+        function cardSelected(x){
+            guessCard=x;
+        }
+
+        function ShowResultAndCalScore() {
+            let msgBox = document.getElementById('msg');
+            let val = brickData[currentIndex].target();
+            msgBox.innerText = val;
+
+
+            if(guessCard==val){
+                score.innerText=20;
+            }
+            else if (val == 'cat') {
+                score.innerText = 5;
+            }
+            else if (val == 'dog') {
+                score.innerText = 3;
+            }
+            else if (val == 'bug') {
+                score.innerText = -10;
+            }
+            else if (val == 'dove') {
+                score.innerText = 0;
+            }
+            else if (val == 'fish') {
+                score.innerText = -5
+            }
+            else if (val == 'shrimp') {
+                score.innerText = 2
+            }
+
+            totalScore.innerText = parseInt(score.innerText) + parseInt(totalScore.innerText)
+        }
+    </script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
