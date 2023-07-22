@@ -8,8 +8,8 @@
         "dataUrl": "./data/iphone-14.json"
     },
     {
-        "title": "iPad(TODO)",
-        "dataUrl": ""
+        "title": "iPadAir",
+        "dataUrl": "./ipadAir.json"
     },
     {
         "title": "Mac(TODO)",

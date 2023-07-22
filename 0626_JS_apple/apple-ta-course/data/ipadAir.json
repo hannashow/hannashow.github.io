@@ -1,0 +1,476 @@
+{
+    "title": "購買 iPadAir",
+    "name": "iPadAir",
+    "images": {
+        "space-gray": [
+            "./images/ipadAir/ipad-air-finish-select-gallery-202211-space-gray.jfif",
+            "./images/ipadAir/ipad-air-finish-select-gallery-202211-space-gray_AV1.jfif",
+            "./images/ipadAir/ipad-air-finish-select-gallery-202211-space-gray_AV2.jfif"
+        ],
+        "blue": [
+            "./images/ipadAir/ipad-air-finish-select-gallery-202211-blue.jfif",
+            "./images/ipadAir/ipad-air-finish-select-gallery-202211-blue_AV1.jfif",
+            "./images/ipadAir/ipad-air-finish-select-gallery-202211-blue_AV2.jfif"
+        ],
+        "pink": [
+            "./images/ipadAir/ipad-air-finish-select-gallery-202211-pink.jfif",
+            "./images/ipadAir/ipad-air-finish-select-gallery-202211-pink_AV1.jfif",
+            "./images/ipadAir/ipad-air-finish-select-gallery-202211-pink_AV2.jfif"
+        ],
+        "purple": [
+            "./images/ipadAir/ipad-air-finish-select-gallery-202211-purple.jfif",
+            "./images/ipadAir/ipad-air-finish-select-gallery-202211-purple_AV1.jfif",
+            "./images/ipadAir/ipad-air-finish-select-gallery-202211-purple_AV2.jfif"
+        ],
+        "starlight": [
+            "./images/ipadAir/ipad-air-finish-select-gallery-202211-starlight.jfif",
+            "./images/ipadAir/ipad-air-finish-select-gallery-202211-starlight_AV1.jfif",
+            "./images/ipadAir/ipad-air-finish-select-gallery-202211-starlight_AV2.jfif"
+        ]
+
+    },
+    "widgets": [
+        {
+            "title": "外觀",
+            "subTitle": "挑選你喜愛的顏色",
+            "type": "color",
+            "col": 1
+        },
+        {
+            "title": "儲存裝置",
+            "subTitle": "選擇需要的儲存空間大小。",
+            "type": "storage",
+            "col": 1
+        },
+        {
+            "title": "連線能力",
+            "subTitle": "選擇連線方式。",
+            "type": "network",
+            "col": 2
+        }
+    ],
+    "colors": [
+        {
+            "colorName": "太空灰色",
+            "colorCode": "space-gray",
+            "colorImg": "./images/ipadAir/ipad-air-finish-space-gray-2022.png"
+        },
+        {
+            "colorName": "藍色",
+            "colorCode": "blue",
+            "colorImg": "./images/ipadAir/ipad-air-finish-blue-2022.png"
+        },
+        {
+            "colorName": "粉紅色",
+            "colorCode": "pink",
+            "colorImg": "./images/ipadAir/ipad-air-finish-pink-2022.png"
+        },
+        {
+            "colorName": "紫色",
+            "colorCode": "purple",
+            "colorImg": "./images/ipadAir/ipad-air-finish-purple-2022.png"
+        },
+        {
+            "colorName": "星光色",
+            "colorCode": "starlight",
+            "colorImg": "./images/ipadAir/ipad-air-finish-starlight-2022.png"
+        }
+    ],
+    "specifications": [
+        {
+            "sku": "iPadAir-space-gray-64-wifi",
+            "model": "iPadAir",
+            "network":"wifi",
+            "storage": "64GB",
+            "color": "space-gray",
+            "price": 19900
+        },
+        {
+            "sku": "iPadAir-starlight-64-wifi",
+            "model": "iPadAir",
+            "network":"wifi",
+            "storage": "64GB",
+            "color": "starlight",
+            "price": 19900
+        },
+        {
+            "sku": "iPadAir-pink-64-wifi",
+            "model": "iPadAir",
+            "network":"wifi",
+            "storage": "64GB",
+            "color": "pink",
+            "price": 19900
+        },
+        {
+            "sku": "iPadAir-blue-64-wifi",
+            "model": "iPadAir",
+            "network":"wifi",
+            "storage": "64GB",
+            "color": "blue",
+            "price": 19900
+        },
+        {
+            "sku": "iPadAir-purple-64-wifi",
+            "model": "iPadAir",
+            "network":"wifi",
+            "storage": "64GB",
+            "color": "purple",
+            "price": 19900
+        },
+        {
+            "sku": "iPadAir-space-gray-256-wifi",
+            "model": "iPadAir",
+            "network":"wifi",
+            "storage": "256GB",
+            "color": "space-gray",
+            "price": 24900
+        },
+        {
+            "sku": "iPadAir-starlight-256-wifi",
+            "model": "iPadAir",
+            "network":"wifi",
+            "storage": "256GB",
+            "color": "starlight",
+            "price": 24900
+        },
+        {
+            "sku": "iPadAir-pink-256-wifi",
+            "model": "iPadAir",
+            "network":"wifi",
+            "storage": "256GB",
+            "color": "pink",
+            "price": 24900
+        },
+        {
+            "sku": "iPadAir-blue-256-wifi",
+            "model": "iPadAir",
+            "network":"wifi",
+            "storage": "256GB",
+            "color": "blue",
+            "price": 24900
+        },
+        {
+            "sku": "iPadAir-purple-256-wifi",
+            "model": "iPadAir",
+            "network":"wifi",
+            "storage": "256GB",
+            "color": "purple",
+            "price": 24900
+        },
+        {
+            "sku": "iPadAir-space-gray-64-cellular",
+            "model": "iPadAir",
+            "network":"cellular",
+            "storage": "64GB",
+            "color": "space-gray",
+            "price": 24900
+        },
+        {
+            "sku": "iPadAir-starlight-64-cellular",
+            "model": "iPadAir",
+            "network":"cellular",
+            "storage": "64GB",
+            "color": "starlight",
+            "price": 24900
+        },
+        {
+            "sku": "iPadAir-pink-64-cellular",
+            "model": "iPadAir",
+            "network":"cellular",
+            "storage": "64GB",
+            "color": "pink",
+            "price": 24900
+        },
+        {
+            "sku": "iPadAir-blue-64-cellular",
+            "model": "iPadAir",
+            "network":"cellular",
+            "storage": "64GB",
+            "color": "blue",
+            "price": 24900
+        },
+        {
+            "sku": "iPadAir-purple-64-cellular",
+            "model": "iPadAir",
+            "network":"cellular",
+            "storage": "64GB",
+            "color": "purple",
+            "price": 24900
+        },
+        {
+            "sku": "iPadAir-space-gray-256-cellular",
+            "model": "iPadAir",
+            "network":"cellular",
+            "storage": "256GB",
+            "color": "space-gray",
+            "price": 29900
+        },
+        {
+            "sku": "iPadAir-starlight-256-cellular",
+            "model": "iPadAir",
+            "network":"cellular",
+            "storage": "256GB",
+            "color": "starlight",
+            "price": 29900
+        },
+        {
+            "sku": "iPadAir-pink-256-cellular",
+            "model": "iPadAir",
+            "network":"cellular",
+            "storage": "256GB",
+            "color": "pink",
+            "price": 29900
+        },
+        {
+            "sku": "iPadAir-blue-256-cellular",
+            "model": "iPadAir",
+            "network":"cellular",
+            "storage": "256GB",
+            "color": "blue",
+            "price": 29900
+        },
+        {
+            "sku": "iPadAir-purple-256-cellular",
+            "model": "iPadAir",
+             "network":"cellular",
+            "storage": "256GB",
+            "color": "purple",
+            "price": 29900
+        },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        {
+            "sku": "iPhone-14-Pro-deeppurple-256",
+            "model": "iPhone 14 Pro",
+            "storage": "256GB",
+            "color": "deeppurple",
+            "price": 38400
+        },
+        {
+            "sku": "iPhone-14-Pro-deeppurple-512",
+            "model": "iPhone 14 Pro",
+            "storage": "512GB",
+            "color": "deeppurple",
+            "price": 45400
+        },
+        {
+            "sku": "iPhone-14-Pro-deeppurple-1024",
+            "model": "iPhone 14 Pro",
+            "storage": "1TB",
+            "color": "deeppurple",
+            "price": 52400
+        },
+        {
+            "sku": "iPhone-14-Pro-gold-128",
+            "model": "iPhone 14 Pro",
+            "storage": "128GB",
+            "color": "gold",
+            "price": 34900
+        },
+        {
+            "sku": "iPhone-14-Pro-gold-256",
+            "model": "iPhone 14 Pro",
+            "storage": "256GB",
+            "color": "gold",
+            "price": 38400
+        },
+        {
+            "sku": "iPhone-14-Pro-gold-512",
+            "model": "iPhone 14 Pro",
+            "storage": "512GB",
+            "color": "gold",
+            "price": 45400
+        },
+        {
+            "sku": "iPhone-14-Pro-gold-1024",
+            "model": "iPhone 14 Pro",
+            "storage": "1TB",
+            "color": "gold",
+            "price": 52400
+        },
+        {
+            "sku": "iPhone-14-Pro-silver-128",
+            "model": "iPhone 14 Pro",
+            "storage": "128GB",
+            "color": "silver",
+            "price": 34900
+        },
+        {
+            "sku": "iPhone-14-Pro-silver-256",
+            "model": "iPhone 14 Pro",
+            "storage": "256GB",
+            "color": "silver",
+            "price": 38400
+        },
+        {
+            "sku": "iPhone-14-Pro-silver-512",
+            "model": "iPhone 14 Pro",
+            "storage": "512GB",
+            "color": "silver",
+            "price": 45400
+        },
+        {
+            "sku": "iPhone-14-Pro-silver-1024",
+            "model": "iPhone 14 Pro",
+            "storage": "1TB",
+            "color": "silver",
+            "price": 52400
+        },
+        {
+            "sku": "iPhone-14-Pro-spaceblack-128",
+            "model": "iPhone 14 Pro",
+            "storage": "128GB",
+            "color": "spaceblack",
+            "price": 34900
+        },
+        {
+            "sku": "iPhone-14-Pro-spaceblack-256",
+            "model": "iPhone 14 Pro",
+            "storage": "256GB",
+            "color": "spaceblack",
+            "price": 38400
+        },
+        {
+            "sku": "iPhone-14-Pro-spaceblack-512",
+            "model": "iPhone 14 Pro",
+            "storage": "512GB",
+            "color": "spaceblack",
+            "price": 45400
+        },
+        {
+            "sku": "iPhone-14-Pro-spaceblack-1024",
+            "model": "iPhone 14 Pro",
+            "storage": "1TB",
+            "color": "spaceblack",
+            "price": 52400
+        },
+        {
+            "sku": "iPhone-14-Pro-Max-deeppurple-128",
+            "model": "iPhone 14 Pro Max",
+            "storage": "128GB",
+            "color": "deeppurple",
+            "price": 38900
+        },
+        {
+            "sku": "iPhone-14-Pro-Max-deeppurple-256",
+            "model": "iPhone 14 Pro Max",
+            "storage": "256GB",
+            "color": "deeppurple",
+            "price": 42400
+        },
+        {
+            "sku": "iPhone-14-Pro-Max-deeppurple-512",
+            "model": "iPhone 14 Pro Max",
+            "storage": "512GB",
+            "color": "deeppurple",
+            "price": 49400
+        },
+        {
+            "sku": "iPhone-14-Pro-Max-deeppurple-1024",
+            "model": "iPhone 14 Pro Max",
+            "storage": "1TB",
+            "color": "deeppurple",
+            "price": 56400
+        },
+        {
+            "sku": "iPhone-14-Pro-Max-gold-128",
+            "model": "iPhone 14 Pro Max",
+            "storage": "128GB",
+            "color": "gold",
+            "price": 38900
+        },
+        {
+            "sku": "iPhone-14-Pro-Max-gold-256",
+            "model": "iPhone 14 Pro Max",
+            "storage": "256GB",
+            "color": "gold",
+            "price": 42400
+        },
+        {
+            "sku": "iPhone-14-Pro-Max-gold-512",
+            "model": "iPhone 14 Pro Max",
+            "storage": "512GB",
+            "color": "gold",
+            "price": 49400
+        },
+        {
+            "sku": "iPhone-14-Pro-Max-gold-1024",
+            "model": "iPhone 14 Pro Max",
+            "storage": "1TB",
+            "color": "gold",
+            "price": 56400
+        },
+        {
+            "sku": "iPhone-14-Pro-Max-silver-128",
+            "model": "iPhone 14 Pro Max",
+            "storage": "128GB",
+            "color": "silver",
+            "price": 38900
+        },
+        {
+            "sku": "iPhone-14-Pro-Max-silver-256",
+            "model": "iPhone 14 Pro Max",
+            "storage": "256GB",
+            "color": "silver",
+            "price": 42400
+        },
+        {
+            "sku": "iPhone-14-Pro-Max-silver-512",
+            "model": "iPhone 14 Pro Max",
+            "storage": "512GB",
+            "color": "silver",
+            "price": 49400
+        },
+        {
+            "sku": "iPhone-14-Pro-Max-silver-1024",
+            "model": "iPhone 14 Pro Max",
+            "storage": "1TB",
+            "color": "silver",
+            "price": 56400
+        },
+        {
+            "sku": "iPhone-14-Pro-Max-spaceblack-128",
+            "model": "iPhone 14 Pro Max",
+            "storage": "128GB",
+            "color": "spaceblack",
+            "price": 38900
+        },
+        {
+            "sku": "iPhone-14-Pro-Max-spaceblack-256",
+            "model": "iPhone 14 Pro Max",
+            "storage": "256GB",
+            "color": "spaceblack",
+            "price": 42400
+        },
+        {
+            "sku": "iPhone-14-Pro-Max-spaceblack-512",
+            "model": "iPhone 14 Pro Max",
+            "storage": "512GB",
+            "color": "spaceblack",
+            "price": 49400
+        },
+        {
+            "sku": "iPhone-14-Pro-Max-spaceblack-1024",
+            "model": "iPhone 14 Pro Max",
+            "storage": "1TB",
+            "color": "spaceblack",
+            "price": 56400
+        }
+    ]
+}
