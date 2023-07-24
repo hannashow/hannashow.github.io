@@ -69,7 +69,7 @@
             </div>
             <div class="col-12 col-md-6 py-3">
                 <div>
-                    <h2>YouBike2.0臺北市公共自行車即時資訊</h2>
+                    <h2>台南美食店家</h2>
                     <p id="updateInfo">最後更新時間: 2021/08/20 12:00:00</p>
                     <p><button class="btn btn-outline-dark" onclick="renew()">更新地圖資料</button></p>
                     <!-- <p><button onclick="geoFindMe()">Show my location</button></p> -->
@@ -84,13 +84,14 @@
                     </div>
                 </div>
 
+
                 <div id="queryResult">
 
                     <!-- <div class="col-12 d-flex text-center">
-                        <div class="col-3 p-1"><strong>地點</strong></div>
+                        <div class="col-3 p-1"><strong>店名</strong></div>
                         <div class="col-3 p-1"><strong>地址</strong></div>
-                        <div class="col-2 p-1"><strong>可借車輛</strong></div>
-                        <div class="col-2 p-1"><strong>可還車輛</strong></div>
+                        <div class="col-2 p-1"><strong>電話</strong></div>
+                        <div class="col-2 p-1"><strong>類別</strong></div>
                         <div class="col-2 p-1"><strong></strong></div>
                     </div>
                     <div class="col-12 d-flex">
@@ -121,9 +122,11 @@
         let zoom = 17 //放大，數字越大地圖越近，可設定0 - 19 
 
         // YouBike JSON連結 
-        const url = 'https://tcgbusfs.blob.core.windows.net/dotapp/youbike/v2/youbike_immediate.json'
+        // const url = 'https://tcgbusfs.blob.core.windows.net/dotapp/youbike/v2/youbike_immediate.json'
+        const url='https://raw.githubusercontent.com/hannashow/FileStorage/main/FoodData'
 
-        let youBikeData = []
+        // let youBikeData = []
+        let foodData=[]
         let map = '' // 地圖物件
         let markers = L.markerClusterGroup() // 地圖群組物件   
 
@@ -179,19 +182,19 @@
             queryResultDom.innerHTML = '';
 
             //過濾資料
-            let filterData = youBikeData.filter(item => {
-                //邏輯  //sna ar
-                return item.sna.includes(inputDom.value) || item.ar.includes(inputDom.value)
+            let filterData = foodData.filter(item => {
+                //邏輯  //address ar
+                return item.address.includes(inputDom.value) || item.name.includes(inputDom.value)
             })
             console.log(filterData);
 
             let str =
                 `
             <div class="col-12 d-flex text-center">
-                        <div class="col-3 p-1"><strong>地點</strong></div>
+                        <div class="col-3 p-1"><strong>店名</strong></div>
                         <div class="col-3 p-1"><strong>地址</strong></div>
-                        <div class="col-2 p-1"><strong>可借車輛</strong></div>
-                        <div class="col-2 p-1"><strong>可還車輛</strong></div>
+                        <div class="col-2 p-1"><strong>電話</strong></div>
+                        <div class="col-2 p-1"><strong>類別</strong></div>
                         <div class="col-2 p-1"><strong></strong></div>
                     </div>
             `
@@ -211,12 +214,12 @@
                     str +=
                         `
                     <div class="col-12 d-flex">
-                        <div class="col-3 p-1">${item.sna}</div>
-                        <div class="col-3 p-1">${item.ar}</div>
-                        <div class="col-2 p-1 text-center">${item.sbi}</div>
-                        <div class="col-2 p-1 text-center">${item.bemp}</div>
+                        <div class="col-3 p-1">${item.name}</div>
+                        <div class="col-3 p-1">${item.address}</div>
+                        <div class="col-2 p-1 text-center">${item.tel}</div>
+                        <div class="col-2 p-1 text-center">${item.category}</div>
                         <div class="col-2 p-1 text-end">
-                            <button type="button" class="btn btn-outline-dark" onclick="goMap(${item.lat},${item.lng})">地圖</button>
+                            <button type="button" class="btn btn-outline-dark" onclick="goMap(${item.lat},${item.long})">地圖</button>
                         </div>
                     </div> 
                     `
@@ -227,15 +230,15 @@
         }
 
         //查詢結果按下 地圖按鈕
-        function goMap(lat, lng) {
+        function goMap(lat, lnog) {
             //重新取得資料(最新)
             getMapData()
             //設定查詢的地圖位置
-            map.setView([lat, lng], 19)
+            map.setView([lat, long], 19)
         }
 
         function renew() {
-            //TODO 更新YouBikeData
+            //TODO 更新foodData
             getMapData()
             if (inputDom.value != '') {
                 query()
@@ -250,7 +253,7 @@
                 .then(data => {
                     // console.log(data)
 
-                    youBikeData = data; //取得資料後放進youBikeData
+                    foodData = data; //取得資料後放進foodData
 
                     //渲染地圖
                     renderMap()
@@ -279,24 +282,26 @@
                 markers.clearLayers()
             }
 
-            //取得YouBikeData 並加上marker 及 popup
-            youBikeData.forEach(item => {
+            //取得foodData 並加上marker 及 popup
+            foodData.forEach(item => {
                 //把每一筆的經緯度設定到marker
 
                 //加上 marker, 如果可借為0顯示紅色,可借>10顯示綠色,其餘顯示黃色
-                var markerColor
-                if(item.sbi<1){
-                    markerColor = 'https://mt.googleapis.com/vt/icon/name=icons/onion/SHARED-mymaps-pin-container-bg_4x.png,icons/onion/SHARED-mymaps-pin-container_4x.png,icons/onion/1899-blank-shape_pin_4x.png&highlight=ffff0000,ff0000&scale=2.0'
-                }
-                else if(item.sbi>10){
-                    markerColor = 'https://mt.googleapis.com/vt/icon/name=icons/onion/SHARED-mymaps-pin-container-bg_4x.png,icons/onion/SHARED-mymaps-pin-container_4x.png,icons/onion/1899-blank-shape_pin_4x.png&highlight=ffff0000,3FBF3F&scale=2.0'
-                }
-                else{
-                    markerColor = 'https://mt.googleapis.com/vt/icon/name=icons/onion/SHARED-mymaps-pin-container-bg_4x.png,icons/onion/SHARED-mymaps-pin-container_4x.png,icons/onion/1899-blank-shape_pin_4x.png&highlight=ffff0000,FFBB00&scale=2.0'
-                }
+                // var markerColor
+                // if(item.sbi<1){
+                //     markerColor = 'https://mt.googleapis.com/vt/icon/name=icons/onion/SHARED-mymaps-pin-container-bg_4x.png,icons/onion/SHARED-mymaps-pin-container_4x.png,icons/onion/1899-blank-shape_pin_4x.png&highlight=ffff0000,ff0000&scale=2.0'
+                // }
+                // else if(item.sbi>10){
+                //     markerColor = 'https://mt.googleapis.com/vt/icon/name=icons/onion/SHARED-mymaps-pin-container-bg_4x.png,icons/onion/SHARED-mymaps-pin-container_4x.png,icons/onion/1899-blank-shape_pin_4x.png&highlight=ffff0000,3FBF3F&scale=2.0'
+                // }
+                // else{
+                //     markerColor = 'https://mt.googleapis.com/vt/icon/name=icons/onion/SHARED-mymaps-pin-container-bg_4x.png,icons/onion/SHARED-mymaps-pin-container_4x.png,icons/onion/1899-blank-shape_pin_4x.png&highlight=ffff0000,FFBB00&scale=2.0'
+                // }
+
+                var blueMarker="https://mt.googleapis.com/vt/icon/name=icons/onion/SHARED-mymaps-pin-container-bg_4x.png,icons/onion/SHARED-mymaps-pin-container_4x.png,icons/onion/1899-blank-shape_pin_4x.png&highlight=ffff0000,6495ed&scale=2.0"
 
                 var myIcon = L.icon({
-                    iconUrl:markerColor,
+                    iconUrl:blueMarker,
                     iconSize: [50, 50],
                     iconAnchor: [22, 94],
                     popupAnchor: [-3, -76],
@@ -304,16 +309,16 @@
                     // shadowSize: [68, 95],
                     // shadowAnchor: [22, 94]
                 });
-                var marker = L.marker([item.lat, item.lng], { icon: myIcon });//這裡不用先.addTo(map)
+                var marker = L.marker([item.lat, item.long], { icon: myIcon });//這裡不用先.addTo(map)
 
-                //標記 加上Popup視窗
-                marker.bindPopup(
-                    `<h5>${item.sna}</h5>
-                    <p>${item.ar}</p>
-                    <p>可借車輛數:${item.sbi}</p>
-                    <p>可還車輛數:${item.bemp}</p>
-                    `
-                );
+                // //標記 加上Popup視窗
+                // marker.bindPopup(
+                //     `<h5>${item.sna}</h5>
+                //     <p>${item.ar}</p>
+                //     <p>可借車輛數:${item.sbi}</p>
+                //     <p>可還車輛數:${item.bemp}</p>
+                //     `
+                // );
                 markers.addLayer(marker);
 
             })
