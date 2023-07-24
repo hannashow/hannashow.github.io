@@ -248,7 +248,7 @@
             fetch(url)
                 .then(res => res.json()) //回傳陣列形式的資料
                 .then(data => {
-                    // console.log(data)
+                    //console.log(data)
 
                     youBikeData = data; //取得資料後放進youBikeData
 
@@ -256,7 +256,7 @@
                     renderMap()
                     //更新日期時間
                     let today = new Date()
-                    console.log(today);
+                    //console.log(today);
 
                     let year = today.getFullYear();
                     let month = today.getMonth() + 1 //拿到的月份要+1才是當下的月份

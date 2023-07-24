@@ -76,33 +76,17 @@
                     <div id="out"></div>
                     <div class="input-group mb-3">
                         <div class="input-group-text" id="basic-addon2">請輸入關鍵字</div>
-
                         <input type="text" class="form-control" placeholder="" aria-label=""
                             aria-describedby="basic-addon2" id="input">
                         <button type="button" class="btn btn-outline-dark" id="query">查詢</button>
-
                     </div>
+                    <button type="button" class="btn btn-outline-success w-100" id="queryRandom">都好想吃~~~幫我挑一家店!</button>
                 </div>
 
 
                 <div id="queryResult">
 
-                    <!-- <div class="col-12 d-flex text-center">
-                        <div class="col-3 p-1"><strong>店名</strong></div>
-                        <div class="col-3 p-1"><strong>地址</strong></div>
-                        <div class="col-2 p-1"><strong>電話</strong></div>
-                        <div class="col-2 p-1"><strong>類別</strong></div>
-                        <div class="col-2 p-1"><strong></strong></div>
-                    </div>
-                    <div class="col-12 d-flex">
-                        <div class="col-3 p-1">YouBike2.0_國北教大實小東側門</div>
-                        <div class="col-3 p-1">大安區和平東路二段96巷7號</div>
-                        <div class="col-2 p-1 text-center">3</div>
-                        <div class="col-2 p-1 text-center">13</div>
-                        <div class="col-2 p-1 text-end">
-                            <button type="button" class="btn btn-outline-dark">地圖</button>
-                        </div>
-                    </div> -->
+
 
                 </div>
             </div>
@@ -119,7 +103,7 @@
     <script>
         let latitude = 0 //25.041985043335522    //緯度
         let longitude = 0 //121.53628740101003 //經度
-        let zoom = 17 //放大，數字越大地圖越近，可設定0 - 19 
+        let zoom = 6.5 //放大，數字越大地圖越近，可設定0 - 19 
 
         // YouBike JSON連結 
         // const url = 'https://tcgbusfs.blob.core.windows.net/dotapp/youbike/v2/youbike_immediate.json'
@@ -134,6 +118,7 @@
         const updateInfoDom = document.querySelector('#updateInfo')
         const inputDom = document.querySelector('#input')
         const queryBtn = document.querySelector('#query')
+        const queryRandomBtn = document.querySelector('#queryRandom')
         const queryResultDom = document.querySelector('#queryResult')
 
         window.onload = function () {
@@ -145,8 +130,8 @@
 
                         latitude = res[0]
                         longitude = res[1]
-
-                        initFN()
+                        
+                        initFN();
                     })
                     .catch(e => {
                         console.log(e)
@@ -154,6 +139,7 @@
             } catch (e) {
                 console.log(e);
             }
+            
         }
 
         function initFN() {
@@ -174,6 +160,36 @@
                 //要去撈出關鍵字相關的資料
                 query()
             }
+        })
+
+        queryRandomBtn.addEventListener("click",function(){
+            let randomFoodIdx=Math.floor(Math.random()*foodData.length);
+            console.log(`idx:${randomFoodIdx}`)
+            let randomFood=foodData[randomFoodIdx];
+            console.log(randomFood)
+            queryResultDom.innerHTML = '';
+            let str =
+                `
+            <div class="col-12 d-flex text-center">
+                        <div class="col-3 p-1"><strong>店名</strong></div>
+                        <div class="col-3 p-1"><strong>地址</strong></div>
+                        <div class="col-2 p-1"><strong>電話</strong></div>
+                        <div class="col-2 p-1"><strong>類別</strong></div>
+                        <div class="col-2 p-1"><strong></strong></div>
+                    </div>
+                    <div class="col-12 d-flex">
+                        <div class="col-3 p-1">${randomFood.name}</div>
+                        <div class="col-3 p-1">${randomFood.address}</div>
+                        <div class="col-2 p-1 text-center">${randomFood.tel}</div>
+                        <div class="col-2 p-1 text-center">${randomFood.category}</div>
+                        <div class="col-2 p-1 text-end">
+                            <button type="button" class="btn btn-outline-dark" onclick="goMap(${randomFood.lat},${randomFood.long})">地圖</button>
+                        </div>
+                    </div> 
+            `
+            queryResultDom.innerHTML = str;
+            goMap(randomFood.lat, randomFood.long)
+            
         })
 
         //查詢關鍵字邏輯 以及 顯示查詢結果
@@ -230,7 +246,7 @@
         }
 
         //查詢結果按下 地圖按鈕
-        function goMap(lat, lnog) {
+        function goMap(lat, long) {
             //重新取得資料(最新)
             getMapData()
             //設定查詢的地圖位置
@@ -251,15 +267,15 @@
             fetch(url)
                 .then(res => res.json()) //回傳陣列形式的資料
                 .then(data => {
-                    // console.log(data)
-
+                    //console.log(data)
+                    
                     foodData = data; //取得資料後放進foodData
 
-                    //渲染地圖
-                    renderMap()
+                   //渲染地圖
+                   renderMap();
                     //更新日期時間
                     let today = new Date()
-                    console.log(today);
+                    //console.log(today);
 
                     let year = today.getFullYear();
                     let month = today.getMonth() + 1 //拿到的月份要+1才是當下的月份
@@ -286,39 +302,29 @@
             foodData.forEach(item => {
                 //把每一筆的經緯度設定到marker
 
-                //加上 marker, 如果可借為0顯示紅色,可借>10顯示綠色,其餘顯示黃色
-                // var markerColor
-                // if(item.sbi<1){
-                //     markerColor = 'https://mt.googleapis.com/vt/icon/name=icons/onion/SHARED-mymaps-pin-container-bg_4x.png,icons/onion/SHARED-mymaps-pin-container_4x.png,icons/onion/1899-blank-shape_pin_4x.png&highlight=ffff0000,ff0000&scale=2.0'
-                // }
-                // else if(item.sbi>10){
-                //     markerColor = 'https://mt.googleapis.com/vt/icon/name=icons/onion/SHARED-mymaps-pin-container-bg_4x.png,icons/onion/SHARED-mymaps-pin-container_4x.png,icons/onion/1899-blank-shape_pin_4x.png&highlight=ffff0000,3FBF3F&scale=2.0'
-                // }
-                // else{
-                //     markerColor = 'https://mt.googleapis.com/vt/icon/name=icons/onion/SHARED-mymaps-pin-container-bg_4x.png,icons/onion/SHARED-mymaps-pin-container_4x.png,icons/onion/1899-blank-shape_pin_4x.png&highlight=ffff0000,FFBB00&scale=2.0'
-                // }
 
                 var blueMarker="https://mt.googleapis.com/vt/icon/name=icons/onion/SHARED-mymaps-pin-container-bg_4x.png,icons/onion/SHARED-mymaps-pin-container_4x.png,icons/onion/1899-blank-shape_pin_4x.png&highlight=ffff0000,6495ed&scale=2.0"
 
+
                 var myIcon = L.icon({
                     iconUrl:blueMarker,
-                    iconSize: [50, 50],
+                    iconSize: [50, 55],
                     iconAnchor: [22, 94],
                     popupAnchor: [-3, -76],
-                    // shadowUrl: 'my-icon-shadow.png',
-                    // shadowSize: [68, 95],
-                    // shadowAnchor: [22, 94]
+                    //shadowUrl: 'my-icon-shadow.png',
+                    //shadowSize: [68, 95],
+                    //shadowAnchor: [22, 94]
                 });
                 var marker = L.marker([item.lat, item.long], { icon: myIcon });//這裡不用先.addTo(map)
 
                 // //標記 加上Popup視窗
-                // marker.bindPopup(
-                //     `<h5>${item.sna}</h5>
-                //     <p>${item.ar}</p>
-                //     <p>可借車輛數:${item.sbi}</p>
-                //     <p>可還車輛數:${item.bemp}</p>
-                //     `
-                // );
+                marker.bindPopup(
+                    `<h5>${item.name}</h5>
+                    <p>電話:${item.tel}</p>
+                    <p>營業時間:${item.open_time}</p>
+                    <p>介紹:${item.summary}</p>
+                    `
+                );
                 markers.addLayer(marker);
 
             })
@@ -332,7 +338,7 @@
         function updateInfo(data) {
             let updateData = data < 10 ? '0' + data : data
             return updateData
-        }
+        } 
 
         function initMap() {
             //地圖初始化 容器
@@ -389,8 +395,8 @@
                 function error() {
                     output.innerHTML = "Unable to retrieve your location";
                     //4.失敗時指定預設值給經緯度
-                    latitude = 25.041846906134474 //緯度
-                    longitude = 121.53629352331052 //經度
+                    latitude = 22.997938058289257 //緯度
+                    longitude = 120.21304918753737 //經度
                     //5.TODO ...呼叫接下來的方法
                     initFN()
                 }
@@ -400,10 +406,6 @@
                 navigator.geolocation.getCurrentPosition(success, error);
 
             })
-
-
-
-
         }
     </script>
 
