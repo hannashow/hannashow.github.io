@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <style>
+        button {
+            width: 100px;
+            margin: 0px 5px;
+            height: 50px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container col-12 m-3">
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="to do..." aria-label="Recipient's username"
+                aria-describedby="newToDoCreateBtn" id="newToDoInput">
+            <button class="btn btn-primary" type="button" id="newToDoCreateBtn">新增</button>
+        </div>
+
+        <div id="AllToDoList">
+
+        </div>
+
+        <!-- <div class="oneToDoList d-flex border p-4 my-3 ">
+            <div class="input-group mr-3">
+                <div class="input-group-text">
+                    <input class="form-check-input mt-0" type="checkbox" value=""
+                        aria-label="Checkbox for following text input">
+                </div>
+                <input type="text" class="form-control" aria-label="Text input with checkbox">
+            </div>
+            <button type="button" class="btn btn-success saveBtn">保存</button>
+            <button type="button" class="btn btn-danger deleteBtn">刪除</button>
+        </div> -->
+
+    </div>
+
+    <script>
+        //取到input DOM元素
+        let newToDoInputDOM = document.querySelector("#newToDoInput");
+        let newToDoCreateBtn = document.querySelector("#newToDoCreateBtn");
+        let AllToDoListDOM = document.querySelector("#AllToDoList");
+        let todokey="ToDoKey";
+
+        //新增按鈕
+        newToDoCreateBtn.addEventListener("click", function () {
+            CreateToDoListFN();
+            renderData();
+        })
+
+        newToDoInputDOM.addEventListener("keypress", function (event) {
+            if (event.key === 'Enter') {
+                CreateToDoListFN();
+                renderData();
+            }
+        })
+
+        window.onload = function () {
+            renderData();
+        }
+
+
+        function renderData() {
+            AllToDoListDOM.innerHTML = '';  //要先將原本的資料清空再重新渲染
+
+            let data = getLocalStorage(); //data是陣列格式
+            if(data==null){
+                return
+            }else{
+                            let createList = '';
+
+            data.forEach((x, idx) => {
+                createList += `
+                <div class="oneToDoList d-flex border p-4 my-3">
+            <div class="input-group mr-3"> 
+                <div class="input-group-text">
+                    <input class="form-check-input mt-0" type="checkbox" 
+                        aria-label="Checkbox for following text input" data-check="${idx}" ${x.done}>
+                </div>
+                <input type="text" class="form-control" aria-label="Text input with checkbox" value="${x.content}" data-inputText="${idx}" disabled>
+            </div>
+            <button type="button" class="btn btn-warning editBtn" data-edit="${idx}">編輯</button>
+            <button type="button" class="btn btn-success saveBtn d-none" data-save="${idx}">保存</button>
+            <button type="button" class="btn btn-danger deleteBtn" data-delete="${idx}">刪除</button>
+        </div>`
+
+            })
+            AllToDoListDOM.innerHTML = createList;
+
+            //為deleteBtn加上click事件
+            document.querySelectorAll(".deleteBtn").forEach((x, idx) => {
+                x.addEventListener("click", function () {
+                    let data = getLocalStorage();
+                    console.log(`刪除待辦:${data[idx]}`);
+                    data.splice(idx, 1);
+                    setLocalStorage(data);
+                    renderData();
+                })
+            })
+            //為editBtn加上click事件 (同時設定saveBtn)
+            document.querySelectorAll(".editBtn").forEach((x, idx) => {
+                x.addEventListener("click", function () {
+                    let data = getLocalStorage();
+                    // console.log(data[idx]);
+                    let inputDOMForEdit = document.querySelector(`[data-inputText="${idx}"]`);
+                    // console.log(inputDOMForEdit);
+                    inputDOMForEdit.removeAttribute("disabled");//改成可以修改input內容
+
+                    //原本就寫好保存的Btn 當按下編輯的時候 編輯Btn Display-none, 保存按鈕show
+                    x.classList.add("d-none"); //當按下編輯的時候 編輯Btn加上d-none class
+                    let saveDOMForEdit = document.querySelector(`[data-save="${idx}"]`);
+                    // console.log(saveDOMForEdit);
+                    saveDOMForEdit.classList.remove("d-none"); //讓saveBtn顯示
+                    saveDOMForEdit.addEventListener("click", function () {
+                        //修改完把input框鎖起來
+                        inputDOMForEdit.setAttribute("disabled", "");
+                        //保存按鈕隱藏,編輯按鈕出現
+                        saveDOMForEdit.classList.add("d-none");
+                        x.classList.remove("d-none");
+                        //更新data資料
+                        data[idx].content = inputDOMForEdit.value;
+                        console.log(data[idx]);
+                        // console.log(data);
+                        //把data寫進localStorage
+                        setLocalStorage(data);
+                    })
+                })
+            })
+
+            //為checkBox加上click事件
+            let checkBoxes = document.querySelectorAll('[type="checkbox"]');
+            // let checkedLists=Array.from(checkBoxes).filter(oneCheckBox=>oneCheckBox.checked);
+            checkBoxes.forEach(x => x.addEventListener("click", function () {
+                let data = getLocalStorage();
+                checkBoxes.forEach((x, idx) => {
+                    if (x.checked) {
+                        data[idx].done = "checked";
+                    }
+                    else {
+                        data[idx].done = ""
+                    }
+
+                });
+                setLocalStorage(data);
+            }));
+            }
+        }
+
+        //setLocalStorage
+        function setLocalStorage(data) {
+            localStorage.setItem(todokey, JSON.stringify(data))
+        }
+        //getLocalStorage
+        function getLocalStorage() {
+            let data = JSON.parse(localStorage.getItem(todokey)); //data是陣列格式
+            return data
+        }
+
+        function CreateToDoListFN() {
+            //判斷input是否為空
+            if(newToDoInputDOM.value==''){
+                return
+            }
+
+            let InputValue = newToDoInputDOM.value;
+            console.log(InputValue);
+
+            //每一筆代辦清單會以物件形式存放在localstorage
+            //localstorage的key只有一個"ToDoKey",value是陣列包物件 
+            let toDoObj = {
+                "content": InputValue,
+                "done": ""
+            };
+            //宣告一個空陣列for localstorage value
+            let AllToDoListLocalValues = [];
+
+            let data = getLocalStorage();//data是陣列格式
+
+            if (data == null) {
+                AllToDoListLocalValues.push(toDoObj);//把物件放進dataArray
+            } else {
+                AllToDoListLocalValues = data;//如果data有資料(物件), 就把data先放進陣列
+                AllToDoListLocalValues.push(toDoObj);//再把這回合要加的資料一並加到陣列
+            }
+            setLocalStorage(AllToDoListLocalValues);  //重新set一次key & value (修改)
+            newToDoInputDOM.value = '';
+        }
+
+    </script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
