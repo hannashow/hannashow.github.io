@@ -1,0 +1,390 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <style>
+            * {
+                padding: 0;
+                margin: 0;
+                list-style: none;
+                color: #222222;
+                font-size: 12px;
+            }
+            body{
+                background-color: #f7f7f7;
+            }
+            header {
+                
+                background-color: #fff;
+                border-bottom: 1px solid #CCC;
+                padding: 20px;
+                max-width: 1000px;
+                margin: auto;
+            }
+    
+       
+            .main {
+                padding: 20px;
+                max-width: 1000px;
+                margin: auto;
+            }
+    
+    
+            a {
+                text-decoration: none;
+                color: #222222;
+            }
+    
+            h1 {
+                font-size: 32px;
+                font-weight: 700;
+                line-height: 36px;
+                margin: 0 0 16px 8px;
+            }
+            h2{
+                font-weight: bold;
+                margin-bottom: 15px;
+            }
+            h3{
+                font-weight: bold;
+                margin-bottom: 15px;
+            }
+            h4{
+                color:#9e9e9e;
+                font-size: 14px;
+            }
+            li {
+                font-size: 14px;
+            }
+            .user-pictureSet{
+                width: 100px;
+                height: 100px; 
+                position: relative;
+            }
+            .user-Info {
+                text-align: center;
+            }
+    
+            .small-marker {
+                width: 20px;
+                height: 20px;
+            }
+            .person-pic{
+                width: 100px;
+                height: 100px;
+                display: flex;
+                background-color: pink;
+                border-radius: 50%;
+                border: 2px solid #ccc;
+                background-image: url();
+            }
+            .inner-person-pic{
+                width: 30%;
+                height: 30%;
+                margin: auto;
+            }
+            .add-pic{
+                width: 30px;
+                height: 30px; 
+                background-color: #fff;
+                position: absolute;
+                right: 0px;
+                bottom: 0px;
+                border-radius: 50%;
+                border: 1px solid #ccc;
+            }
+            .user-nav-ul{
+                display: flex;
+                justify-content: space-around;
+                left:0px;
+                
+            }
+            .rest-pic {
+                Object-fit: cover;
+                overflow: hidden;
+            }
+    
+            .order-rest-card-div,.liked-rest-card-div {
+                margin: 15px;
+                border: 1px solid #ccc;
+                 border-radius: 10px;
+            }
+    
+            .order-rest-card-a,.liked-rest-card-a {
+                padding: 10px;
+                box-sizing: border-box;
+            }
+            
+            .card-body {
+                padding: 10px;
+            }
+            .recently-orders,.past-orders,.liked-rest,.about-me,.perfer-setting,.payment-method{
+                background-color: #fff;
+                padding: 15px;
+                margin: 15px;
+            }
+            .about-me>div{
+                margin-bottom: 15px;
+            }
+            .perfer-setting .form-check{
+                margin-bottom: 15px;
+            }
+        </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="user-Info m-auto d-flex flex-wrap justify-content-center justify-content-md-start">
+            <div class="user-pictureSet my-auto">
+                <div class="person-pic">
+                    <div class="inner-person-pic" >
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" focusable="false">
+                            <g fill="none" fill-rule="evenodd">
+                                <path
+                                    d="M14.5734892,12.2877361 C17.0042328,12.8819383 18.7345621,14.3964534 19.7644773,16.8312813 C19.9208947,17.2010684 20.0014914,17.5984917 20.0014914,18 C20.0014914,19.6568477 18.658351,20.9999882 17.0015032,20.9999882 L6.99926923,21 C6.59776067,21 6.2003371,20.9194033 5.83054967,20.7629859 C4.3045986,20.1175199 3.59082441,18.3572386 4.23628386,16.8312848 C5.26612228,14.3966359 6.99627139,12.8821638 9.42673118,12.2878687 C7.97272602,11.4134027 7,9.82029752 7,8 C7,5.23857625 9.23857625,3 12,3 C14.7614237,3 17,5.23857625 17,8 C17,9.82020554 16.0273723,11.4132417 14.5734892,12.2877361 Z M12,5 C10.3431458,5 9,6.34314575 9,8 C9,9.65685425 10.3431458,11 12,11 C13.6568542,11 15,9.65685425 15,8 C15,6.34314575 13.6568542,5 12,5 Z M17.9429826,17.6856919 C17.1294316,15.228564 15.1485327,14 12.000286,14 C8.85208947,14 6.87106303,15.2285248 6.05720667,17.6855743 L6.05721876,17.6855783 C5.88356446,18.2098444 6.16779141,18.7756206 6.69205743,18.9492749 C6.79348438,18.9828708 6.89964014,18.9999945 7.00648636,18.9999945 L16.99371,18.9999469 C17.5459684,18.9999469 17.9936623,18.552253 17.9936623,17.9999945 C17.9936623,17.8931928 17.9765523,17.7870807 17.9429826,17.6856919 Z"
+                                    fill="#2D333F"></path>
+                            </g>
+                        </svg>
+                    </div>
+                </div>
+                <div class="add-pic p-2" >
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" focusable="false">
+                        <g fill="none" fill-rule="evenodd">
+                            <path
+                                d="M4,6 L4,5 C4,4.44771525 4.44771525,4 5,4 C5.55228475,4 6,4.44771525 6,5 L6,6 L7,6 C7.55228475,6 8,6.44771525 8,7 C8,7.55228475 7.55228475,8 7,8 L6,8 L6,9 C6,9.55228475 5.55228475,10 5,10 C4.44771525,10 4,9.55228475 4,9 L4,8 L3,8 C2.44771525,8 2,7.55228475 2,7 C2,6.44771525 2.44771525,6 3,6 L4,6 Z M15.1683073,7 L11.0019056,7 C10.4496208,7 10.0019056,6.55228475 10.0019056,6 C10.0019056,5.44771525 10.4496208,5 11.0019056,5 L15.9953845,5 L18,7 L20,7 C21.1045695,7 22,7.8954305 22,9 L22,18 C22,19.1045695 21.1045695,20 20,20 L6,20 C4.8954305,20 4,19.1045695 4,18 L4,13 C4,12.4477153 4.44771525,12 5,12 C5.55228475,12 6,12.4477153 6,13 L6,18 L20,18 L20,9 L17.1729228,9 L15.1683073,7 Z M13,16.5 C11.0670034,16.5 9.5,14.9329966 9.5,13 C9.5,11.0670034 11.0670034,9.5 13,9.5 C14.9329966,9.5 16.5,11.0670034 16.5,13 C16.5,14.9329966 14.9329966,16.5 13,16.5 Z M13,14.5 C13.8284271,14.5 14.5,13.8284271 14.5,13 C14.5,12.1715729 13.8284271,11.5 13,11.5 C12.1715729,11.5 11.5,12.1715729 11.5,13 C11.5,13.8284271 12.1715729,14.5 13,14.5 Z"
+                                fill="#2D333F" fill-rule="nonzero"></path>
+                        </g>
+                    </svg>
+                </div>
+            </div>
+            <div class="user-nameAndInfo">
+                <h1>Hello Hanna :</h1>
+                <span>
+                    <svg viewBox="0 0 24 24" class="small-marker" xmlns="http://www.w3.org/2000/svg" focusable="false">
+                        <g fill="none" fill-rule="evenodd">
+                            <path
+                                d="M12,2 C16.418278,2 20,5.581722 20,10 C20,12.8133333 17.5666667,16.59 12.7,21.33 C12.3111565,21.7111429 11.6888435,21.7111429 11.3,21.33 C6.43333333,16.59 4,12.8133333 4,10 C4,5.581722 7.581722,2 12,2 Z M12,4 C8.6862915,4 6,6.6862915 6,10 C6,11.21 6.8,14 12,19.21 C17.2,14 18,11.21 18,10 C18,6.6862915 15.3137085,4 12,4 Z M12,7 C13.6568542,7 15,8.34314575 15,10 C15,11.6568542 13.6568542,13 12,13 C10.3431458,13 9,11.6568542 9,10 C9,8.34314575 10.3431458,7 12,7 Z M12,9 C11.4477153,9 11,9.44771525 11,10 C11,10.5522847 11.4477153,11 12,11 C12.5522847,11 13,10.5522847 13,10 C13,9.44771525 12.5522847,9 12,9 Z"
+                                fill="#2D333F"></path>
+                        </g>
+                    </svg>
+                    <span>台中市</span>
+                </span>
+                <p>會員開始日期:2023年5月</p>
+            </div>
+        </div>
+    </header>
+    <div class="main col-12 d-flex flex-wrap justify-content-center">
+
+        <nav class="user-nav col-12 col-md-2">
+            <ul class="user-nav-ul p-0 col-12 d-flex flex-wrap justify-content-around" >
+                <li class="d-block col-md-12 my-2">
+                    <a href="./memberPage_booking.html">訂位</a>
+                </li>
+                <li class="d-block col-md-12 my-2">
+                    <a href="./memberPage_liked_rest.html">珍藏餐廳</a>
+                </li>
+                <li class="d-block col-md-12 my-2">
+                    <a href="./memberPage_user_detail.html">帳戶詳細資料</a>
+                </li>
+                <li class="d-block col-md-12 my-2">
+                    <a href="./memberPage_prefer_setting.html">偏好設定</a>
+                </li>
+                <li class="d-block col-md-12 my-2">
+                    <a href="./memberPage_payment.html">付款方式</a>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="order-record col-12 col-md-10 p-1">
+           
+            <div class="about-me">
+                <h2>關於我 <a href="#">隱私權政策</a></h2>
+                <div class="mb-3">
+                    <label for="firstName" class="form-label">姓名</label>
+                    <input type="text" class="form-control" placeholder="你的名字" aria-label="firstName"
+                        aria-describedby="basic-addon1">
+                </div>
+                <div class="mb-3">
+                    <label for="lastName" class="form-label">姓氏</label>
+                    <input type="text" class="form-control" placeholder="你的姓氏" aria-label="lastName"
+                        aria-describedby="basic-addon2">
+                </div>
+                <div class="mb-3">
+                    <label for="nickName" class="form-label">評論顯示名稱</label>
+                    <input type="text" class="form-control" placeholder="評論顯示名稱" aria-label="nickName"
+                        aria-describedby="basic-addon3">
+                    <p>你發表的所有評論都會顯示該名稱。請不要使用你的全名或電子郵件。</p>
+                </div>
+                <div class="mb-3">
+                    <label for="userEmail" class="form-label">電子郵件地址</label>
+                    <input type="text" class="form-control" id="userEmail" aria-describedby="basic-addon4">
+                </div>
+                <div class="mb-3">
+                    <label for="userTel" class="form-label">電話 (還沒串API)</label>
+                    <input type="tel" class="form-control" id="userTel" aria-describedby="basic-addon5">
+                </div>
+                <div class="mb-3">
+                    <label for="userAddress" class="form-label">地址</label>
+                    <input type="text" class="form-control" id="userAddress" aria-describedby="basic-addon6">
+                </div>
+                <div class="mb-3">
+                    <label for="eatingRegion" class="form-label">主要用餐位置</label>
+                    <input type="text" class="form-control" id="eatingRegion" aria-describedby="basic-addon7">
+                    <p>變更你的所在位置來更新Openable透過電子郵件傳送的推薦餐廳資訊。</p>
+                </div>
+                <div class="mb-3 col-12">
+                    <label for="Birthday" class="form-label">生日</label>
+                    <select class="form-select" aria-label="Default select example">
+                        <option selected>月</option>
+                        <option value="1">1月</option>
+                        <option value="2">2月</option>
+                        <option value="3">3月</option>
+                        <option value="4">4月</option>
+                        <option value="5">5月</option>
+                        <option value="6">6月</option>
+                        <option value="7">7月</option>
+                        <option value="8">8月</option>
+                        <option value="9">9月</option>
+                        <option value="10">10月</option>
+                        <option value="11">11月</option>
+                        <option value="12">12月</option>
+                    </select>
+                    <select class="form-select" aria-label="Default select example">
+                        <option selected>日</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                        <option value="13">13</option>
+                        <option value="14">14</option>
+                        <option value="15">15</option>
+                        <option value="16">16</option>
+                        <option value="17">17</option>
+                        <option value="18">18</option>
+                        <option value="19">19</option>
+                        <option value="20">20</option>
+                        <option value="21">21</option>
+                        <option value="22">22</option>
+                        <option value="23">23</option>
+                        <option value="24">24</option>
+                        <option value="25">25</option>
+                        <option value="26">26</option>
+                        <option value="27">27</option>
+                        <option value="28">28</option>
+                        <option value="29">29</option>
+                        <option value="30">30</option>
+                        <option value="31">31</option>
+                    </select>
+                </div>
+                <div class="mb-3 col-12">
+                    <label for="anniversary" class="form-label">週年紀念</label>
+                    <select class="form-select" aria-label="Default select example">
+                        <option selected>月</option>
+                        <option value="1">1月</option>
+                        <option value="2">2月</option>
+                        <option value="3">3月</option>
+                        <option value="4">4月</option>
+                        <option value="5">5月</option>
+                        <option value="6">6月</option>
+                        <option value="7">7月</option>
+                        <option value="8">8月</option>
+                        <option value="9">9月</option>
+                        <option value="10">10月</option>
+                        <option value="11">11月</option>
+                        <option value="12">12月</option>
+                    </select>
+                    <select class="form-select" aria-label="Default select example">
+                        <option selected>日</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                        <option value="13">13</option>
+                        <option value="14">14</option>
+                        <option value="15">15</option>
+                        <option value="16">16</option>
+                        <option value="17">17</option>
+                        <option value="18">18</option>
+                        <option value="19">19</option>
+                        <option value="20">20</option>
+                        <option value="21">21</option>
+                        <option value="22">22</option>
+                        <option value="23">23</option>
+                        <option value="24">24</option>
+                        <option value="25">25</option>
+                        <option value="26">26</option>
+                        <option value="27">27</option>
+                        <option value="28">28</option>
+                        <option value="29">29</option>
+                        <option value="30">30</option>
+                        <option value="31">31</option>
+                    </select>
+                </div>
+
+                <div class="mb-3 col-12">
+                    <label for="FoodPrefer">飲食偏好</label>
+                    <div data-test="tag">
+                        <input type="checkbox" id="無麩質" value="無麩質">
+                        <label for="無麩質" class=" p-2" style="border: 1px solid #CCC; border-radius:15px;">無麩質</label>
+                        <input type="checkbox" id="無紅肉" value="無紅肉">
+                        <label for="無紅肉" class=" p-2" style="border: 1px solid #CCC; border-radius:15px;">無紅肉</label>
+                        <input type="checkbox" id="海鮮素" value="海鮮素">
+                        <label for="海鮮素" class=" p-2" style="border: 1px solid #CCC; border-radius:15px;">海鮮素</label>
+                        <input type="checkbox" id="純素" value="純素">
+                        <label for="純素" class=" p-2" style="border: 1px solid #CCC; border-radius:15px;">純素</label>
+                        <input type="checkbox" id="素食" value="素食">
+                        <label for="素食" class=" p-2" style="border: 1px solid #CCC; border-radius:15px;">素食</label>
+                        <input type="checkbox" id="不含堅果類" value="不含堅果類">
+                        <label for="不含堅果類" class=" p-2" style="border: 1px solid #CCC; border-radius:15px;">不含堅果類</label>
+                        <input type="checkbox" id="不含乳製品" value="不含乳製品">
+                        <label for="不含乳製品" class=" p-2" style="border: 1px solid #CCC; border-radius:15px;">不含乳製品</label>
+                    </div>
+                </div>
+                
+                <div class="mb-3">
+                    <label for="exampleFormControlTextarea1" class="form-label">特殊要求</label>
+                    <textarea class="form-control" placeholder="新增特殊要求" id="exampleFormControlTextarea1"
+                        rows="3"></textarea>
+                    <p>你在這裡新增的要求會同步新增到每一筆訂位當中。餐廳業者會盡其所能滿足你的任何特殊要求。</p>
+                </div>
+                <button type="button" class="btn btn-danger col-12">儲存變更</button>
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

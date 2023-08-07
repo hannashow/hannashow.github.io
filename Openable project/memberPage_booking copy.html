@@ -18,16 +18,25 @@
             color: #222222;
             font-size: 12px;
         }
-
-        header {
-            padding: 30px;
+        body{
+            background-color: #f7f7f7;
         }
-
-        header,
-        .main {
+        header {
+            
+            background-color: #fff;
+            border-bottom: 1px solid #CCC;
+            padding: 20px;
             max-width: 1000px;
             margin: auto;
         }
+
+   
+        .main {
+            padding: 20px;
+            max-width: 1000px;
+            margin: auto;
+        }
+
 
         a {
             text-decoration: none;
@@ -40,11 +49,26 @@
             line-height: 36px;
             margin: 0 0 16px 8px;
         }
-
+        h2{
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        h3{
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        h4{
+            color:#9e9e9e;
+            font-size: 14px;
+        }
         li {
             font-size: 14px;
         }
-
+        .user-pictureSet{
+            width: 100px;
+            height: 100px; 
+            position: relative;
+        }
         .user-Info {
             text-align: center;
         }
@@ -53,23 +77,65 @@
             width: 20px;
             height: 20px;
         }
-
+        .person-pic{
+            width: 100px;
+            height: 100px;
+            display: flex;
+            background-color: pink;
+            border-radius: 50%;
+            border: 2px solid #ccc;
+            background-image: url();
+        }
+        .inner-person-pic{
+            width: 30%;
+            height: 30%;
+            margin: auto;
+        }
+        .add-pic{
+            width: 30px;
+            height: 30px; 
+            background-color: #fff;
+            position: absolute;
+            right: 0px;
+            bottom: 0px;
+            border-radius: 50%;
+            border: 1px solid #ccc;
+        }
+        .user-nav-ul{
+            display: flex;
+            justify-content: space-around;
+            left:0px;
+            
+        }
         .rest-pic {
             Object-fit: cover;
             overflow: hidden;
         }
 
-        .order-rest-card-div {
+        .order-rest-card-div,.liked-rest-card-div {
             margin: 15px;
+            border: 1px solid #ccc;
+             border-radius: 10px;
         }
 
-        .order-rest-card-a {
-            padding: 15px;
+        .order-rest-card-a,.liked-rest-card-a {
+            padding: 10px;
             box-sizing: border-box;
         }
-
+        
         .card-body {
             padding: 10px;
+        }
+        .recently-orders,.past-orders,.liked-rest,.about-me,.perfer-setting,.payment-method{
+            background-color: #fff;
+            padding: 15px;
+            margin: 15px;
+        }
+        .about-me>div{
+            margin-bottom: 15px;
+        }
+        .perfer-setting .form-check{
+            margin-bottom: 15px;
         }
     </style>
 </head>
@@ -78,10 +144,9 @@
 
     <header>
         <div class="user-Info m-auto d-flex flex-wrap justify-content-center justify-content-md-start">
-            <div class="user-pictureSet my-auto" style="width: 100px;height: 100px; position: relative;">
-                <div class="person-pic"
-                    style="width: 100px;height: 100px;display: flex;background-color: pink;border-radius: 50%; border: 2px solid #ccc;background-image: url();">
-                    <div style="width: 30%;height: 30%;margin: auto;">
+            <div class="user-pictureSet my-auto">
+                <div class="person-pic">
+                    <div class="inner-person-pic" >
                         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" focusable="false">
                             <g fill="none" fill-rule="evenodd">
                                 <path
@@ -90,10 +155,8 @@
                             </g>
                         </svg>
                     </div>
-
                 </div>
-                <div class="add-pic p-2"
-                    style="width: 30px;height: 30px; background-color: #fff;position: absolute; right: 0px;bottom: 0px;border-radius: 50%; border: 1px solid #ccc;">
+                <div class="add-pic p-2" >
                     <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" focusable="false">
                         <g fill="none" fill-rule="evenodd">
                             <path
@@ -118,33 +181,34 @@
                 <p>會員開始日期:2023年5月</p>
             </div>
         </div>
-
     </header>
-    <div class="main col-12 d-flex flex-wrap">
-        <nav class="user-nav col-12 col-md-3 ">
-            <ul class="d-flex flex-wrap" style="display: flex; justify-content: space-around; left:0px;">
+    <div class="main col-12 d-flex flex-wrap justify-content-center">
+
+        <nav class="user-nav col-12 col-md-2">
+            <ul class="user-nav-ul p-0 col-12 d-flex flex-wrap justify-content-around" >
                 <li class="d-block col-md-12 my-2">
-                    <a href="#">訂位</a>
+                    <a href="./memberPage_booking.html">訂位</a>
                 </li>
                 <li class="d-block col-md-12 my-2">
-                    <a href="#">珍藏餐廳</a>
+                    <a href="./memberPage_liked_rest.html">珍藏餐廳</a>
                 </li>
                 <li class="d-block col-md-12 my-2">
-                    <a href="#">帳戶詳細資料</a>
+                    <a href="./memberPage_user_detail.html">帳戶詳細資料</a>
                 </li>
                 <li class="d-block col-md-12 my-2">
-                    <a href="#">偏好設定</a>
+                    <a href="./memberPage_prefer_setting.html">偏好設定</a>
                 </li>
                 <li class="d-block col-md-12 my-2">
-                    <a href="#">付款方式</a>
+                    <a href="./memberPage_payment.html">付款方式</a>
                 </li>
             </ul>
         </nav>
-        <div class="order-record col-12 col-md-8">
+
+        <div class="order-record col-12 col-md-10 p-1">
             <div class="recently-orders">
                 <h2>近期訂位</h2>
 
-                <div class="order-rest-card-div" style="border: 1px solid #ccc; border-radius: 10px;">
+                <div class="order-rest-card-div" >
                     <a href="#" class="w-100 h-100 d-flex flex-wrap order-rest-card-a">
                         <img src="pizza.png" class="col-12 col-md-3 object-fit-cover h-auto"
                             style="height: 100px; border-radius: 8px;">
@@ -164,7 +228,7 @@
                                 </span>
                                 已確認訂位
                             </p>
-                            <p style="margin: 0px;">
+                            <p>
                                 <span>
                                     <span class="pBCjKaMJcpEY4UICo9ol u8wgZpB6XwKBNBYSGfK4" data-test="icPerson"
                                         data-testid="icPerson"><svg viewBox="0 0 24 24" class="small-marker"
@@ -186,13 +250,13 @@
                                                 fill="#2D333F"></path>
                                         </g>
                                     </svg></span>
-                                8月17日 週四下午6:30
+                                8月30日 週四下午6:30
                             </p>
                         </div>
                     </a>
 
                 </div>
-                <div class="order-rest-card-div" style="border: 1px solid #ccc; border-radius: 10px;">
+                <div class="order-rest-card-div" >
                     <a href="#" class="w-100 h-100 d-flex flex-wrap order-rest-card-a">
                         <img src="pizza.png" class="col-12 col-md-3 object-fit-cover h-auto"
                             style="height: 100px; border-radius: 8px;">
@@ -212,7 +276,7 @@
                                 </span>
                                 已確認訂位
                             </p>
-                            <p style="margin: 0px;">
+                            <p>
                                 <span>
                                     <span class="pBCjKaMJcpEY4UICo9ol u8wgZpB6XwKBNBYSGfK4" data-test="icPerson"
                                         data-testid="icPerson"><svg viewBox="0 0 24 24" class="small-marker"
@@ -234,19 +298,17 @@
                                                 fill="#2D333F"></path>
                                         </g>
                                     </svg></span>
-                                8月17日 週四下午6:30
+                                8月30日 週四下午6:30
                             </p>
                         </div>
                     </a>
 
                 </div>
-
             </div>
-
 
             <div class="past-orders">
                 <h2>過去的訂位</h2>
-                <div class="order-rest-card-div" style="border: 1px solid #ccc; border-radius: 10px;">
+                <div class="order-rest-card-div">
                     <a href="#" class="w-100 h-100 d-flex flex-wrap order-rest-card-a">
                         <img src="pizza.png" class="col-12 col-md-3 object-fit-cover h-auto"
                             style="height: 100px; border-radius: 8px;">
@@ -288,7 +350,83 @@
                                                 fill="#2D333F"></path>
                                         </g>
                                     </svg></span>
-                                8月17日 週四下午6:30
+                                8月5日 週四下午6:30
+                            </p>
+                            <div class="scoreForRest my-2">
+                                留下評論
+                                <svg xmlns="http://www.w3.org/2000/svg" height="1em"
+                                    viewBox="0 0 576 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                                    <path
+                                        d="M287.9 0c9.2 0 17.6 5.2 21.6 13.5l68.6 141.3 153.2 22.6c9 1.3 16.5 7.6 19.3 16.3s.5 18.1-5.9 24.5L433.6 328.4l26.2 155.6c1.5 9-2.2 18.1-9.6 23.5s-17.3 6-25.3 1.7l-137-73.2L151 509.1c-8.1 4.3-17.9 3.7-25.3-1.7s-11.2-14.5-9.7-23.5l26.2-155.6L31.1 218.2c-6.5-6.4-8.7-15.9-5.9-24.5s10.3-14.9 19.3-16.3l153.2-22.6L266.3 13.5C270.4 5.2 278.7 0 287.9 0zm0 79L235.4 187.2c-3.5 7.1-10.2 12.1-18.1 13.3L99 217.9 184.9 303c5.5 5.5 8.1 13.3 6.8 21L171.4 443.7l105.2-56.2c7.1-3.8 15.6-3.8 22.6 0l105.2 56.2L384.2 324.1c-1.3-7.7 1.2-15.5 6.8-21l85.9-85.1L358.6 200.5c-7.8-1.2-14.6-6.1-18.1-13.3L287.9 79z" />
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" height="1em"
+                                    viewBox="0 0 576 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                                    <path
+                                        d="M287.9 0c9.2 0 17.6 5.2 21.6 13.5l68.6 141.3 153.2 22.6c9 1.3 16.5 7.6 19.3 16.3s.5 18.1-5.9 24.5L433.6 328.4l26.2 155.6c1.5 9-2.2 18.1-9.6 23.5s-17.3 6-25.3 1.7l-137-73.2L151 509.1c-8.1 4.3-17.9 3.7-25.3-1.7s-11.2-14.5-9.7-23.5l26.2-155.6L31.1 218.2c-6.5-6.4-8.7-15.9-5.9-24.5s10.3-14.9 19.3-16.3l153.2-22.6L266.3 13.5C270.4 5.2 278.7 0 287.9 0zm0 79L235.4 187.2c-3.5 7.1-10.2 12.1-18.1 13.3L99 217.9 184.9 303c5.5 5.5 8.1 13.3 6.8 21L171.4 443.7l105.2-56.2c7.1-3.8 15.6-3.8 22.6 0l105.2 56.2L384.2 324.1c-1.3-7.7 1.2-15.5 6.8-21l85.9-85.1L358.6 200.5c-7.8-1.2-14.6-6.1-18.1-13.3L287.9 79z" />
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" height="1em"
+                                    viewBox="0 0 576 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                                    <path
+                                        d="M287.9 0c9.2 0 17.6 5.2 21.6 13.5l68.6 141.3 153.2 22.6c9 1.3 16.5 7.6 19.3 16.3s.5 18.1-5.9 24.5L433.6 328.4l26.2 155.6c1.5 9-2.2 18.1-9.6 23.5s-17.3 6-25.3 1.7l-137-73.2L151 509.1c-8.1 4.3-17.9 3.7-25.3-1.7s-11.2-14.5-9.7-23.5l26.2-155.6L31.1 218.2c-6.5-6.4-8.7-15.9-5.9-24.5s10.3-14.9 19.3-16.3l153.2-22.6L266.3 13.5C270.4 5.2 278.7 0 287.9 0zm0 79L235.4 187.2c-3.5 7.1-10.2 12.1-18.1 13.3L99 217.9 184.9 303c5.5 5.5 8.1 13.3 6.8 21L171.4 443.7l105.2-56.2c7.1-3.8 15.6-3.8 22.6 0l105.2 56.2L384.2 324.1c-1.3-7.7 1.2-15.5 6.8-21l85.9-85.1L358.6 200.5c-7.8-1.2-14.6-6.1-18.1-13.3L287.9 79z" />
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" height="1em"
+                                    viewBox="0 0 576 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                                    <path
+                                        d="M287.9 0c9.2 0 17.6 5.2 21.6 13.5l68.6 141.3 153.2 22.6c9 1.3 16.5 7.6 19.3 16.3s.5 18.1-5.9 24.5L433.6 328.4l26.2 155.6c1.5 9-2.2 18.1-9.6 23.5s-17.3 6-25.3 1.7l-137-73.2L151 509.1c-8.1 4.3-17.9 3.7-25.3-1.7s-11.2-14.5-9.7-23.5l26.2-155.6L31.1 218.2c-6.5-6.4-8.7-15.9-5.9-24.5s10.3-14.9 19.3-16.3l153.2-22.6L266.3 13.5C270.4 5.2 278.7 0 287.9 0zm0 79L235.4 187.2c-3.5 7.1-10.2 12.1-18.1 13.3L99 217.9 184.9 303c5.5 5.5 8.1 13.3 6.8 21L171.4 443.7l105.2-56.2c7.1-3.8 15.6-3.8 22.6 0l105.2 56.2L384.2 324.1c-1.3-7.7 1.2-15.5 6.8-21l85.9-85.1L358.6 200.5c-7.8-1.2-14.6-6.1-18.1-13.3L287.9 79z" />
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" height="1em"
+                                    viewBox="0 0 576 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                                    <path
+                                        d="M287.9 0c9.2 0 17.6 5.2 21.6 13.5l68.6 141.3 153.2 22.6c9 1.3 16.5 7.6 19.3 16.3s.5 18.1-5.9 24.5L433.6 328.4l26.2 155.6c1.5 9-2.2 18.1-9.6 23.5s-17.3 6-25.3 1.7l-137-73.2L151 509.1c-8.1 4.3-17.9 3.7-25.3-1.7s-11.2-14.5-9.7-23.5l26.2-155.6L31.1 218.2c-6.5-6.4-8.7-15.9-5.9-24.5s10.3-14.9 19.3-16.3l153.2-22.6L266.3 13.5C270.4 5.2 278.7 0 287.9 0zm0 79L235.4 187.2c-3.5 7.1-10.2 12.1-18.1 13.3L99 217.9 184.9 303c5.5 5.5 8.1 13.3 6.8 21L171.4 443.7l105.2-56.2c7.1-3.8 15.6-3.8 22.6 0l105.2 56.2L384.2 324.1c-1.3-7.7 1.2-15.5 6.8-21l85.9-85.1L358.6 200.5c-7.8-1.2-14.6-6.1-18.1-13.3L287.9 79z" />
+                                </svg>
+                            </div>
+                        </div>
+                    </a>
+
+                </div>
+                <div class="order-rest-card-div">
+                    <a href="#" class="w-100 h-100 d-flex flex-wrap order-rest-card-a">
+                        <img src="pizza.png" class="col-12 col-md-3 object-fit-cover h-auto"
+                            style="height: 100px; border-radius: 8px;">
+                        <div class="card-body col-12 col-md-6">
+                            <h5 class="card-title my-2">涓豆腐 台中麗寶店</h5>
+                            <p class="card-text my-2">
+                                <span>
+                                    <svg viewBox="0 0 24 24" class="small-marker" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg" focusable="false">
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M3.54142 5.74079C3.6587 5.3038 4.05479 5 4.50724 5H20.5535C21.0595 5 21.4858 5.37796 21.5463 5.88033L22.9928 17.8803C23.0271 18.1643 22.938 18.4494 22.7482 18.6634C22.5584 18.8775 22.2861 19 22 19H6.45517C5.96641 19 5.54926 18.6467 5.46881 18.1646L5.16463 16.3418H2.00001C1.68905 16.3418 1.39578 16.1972 1.20653 15.9504C1.01728 15.7037 0.953583 15.3829 1.03419 15.0826L3.54142 5.74079ZM6.99929 15.1853L7.30212 17H20.8722L19.6668 7H5.68826L6.49645 11.8351L6.49906 11.8516L6.99929 15.1853ZM4.27983 10.7051L4.52244 12.1566L4.85033 14.3418H3.30379L4.27983 10.7051Z"
+                                            fill="#2D333F"></path>
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M8.5 12C8.5 11.4477 8.94772 11 9.5 11L17.2254 11C17.7777 11 18.2254 11.4477 18.2254 12C18.2254 12.5523 17.7777 13 17.2254 13L9.5 13C8.94772 13 8.5 12.5523 8.5 12Z"
+                                            fill="#2D333F"></path>
+                                    </svg>
+                                </span>
+                                已完成訂位
+                            </p>
+                            <p style="margin: 0px;">
+                                <span>
+                                    <span class="pBCjKaMJcpEY4UICo9ol u8wgZpB6XwKBNBYSGfK4" data-test="icPerson"
+                                        data-testid="icPerson"><svg viewBox="0 0 24 24" class="small-marker"
+                                            xmlns="http://www.w3.org/2000/svg" focusable="false">
+                                            <g fill="none" fill-rule="evenodd">
+                                                <path
+                                                    d="M14.5734892,12.2877361 C17.0042328,12.8819383 18.7345621,14.3964534 19.7644773,16.8312813 C19.9208947,17.2010684 20.0014914,17.5984917 20.0014914,18 C20.0014914,19.6568477 18.658351,20.9999882 17.0015032,20.9999882 L6.99926923,21 C6.59776067,21 6.2003371,20.9194033 5.83054967,20.7629859 C4.3045986,20.1175199 3.59082441,18.3572386 4.23628386,16.8312848 C5.26612228,14.3966359 6.99627139,12.8821638 9.42673118,12.2878687 C7.97272602,11.4134027 7,9.82029752 7,8 C7,5.23857625 9.23857625,3 12,3 C14.7614237,3 17,5.23857625 17,8 C17,9.82020554 16.0273723,11.4132417 14.5734892,12.2877361 Z M12,5 C10.3431458,5 9,6.34314575 9,8 C9,9.65685425 10.3431458,11 12,11 C13.6568542,11 15,9.65685425 15,8 C15,6.34314575 13.6568542,5 12,5 Z M17.9429826,17.6856919 C17.1294316,15.228564 15.1485327,14 12.000286,14 C8.85208947,14 6.87106303,15.2285248 6.05720667,17.6855743 L6.05721876,17.6855783 C5.88356446,18.2098444 6.16779141,18.7756206 6.69205743,18.9492749 C6.79348438,18.9828708 6.89964014,18.9999945 7.00648636,18.9999945 L16.99371,18.9999469 C17.5459684,18.9999469 17.9936623,18.552253 17.9936623,17.9999945 C17.9936623,17.8931928 17.9765523,17.7870807 17.9429826,17.6856919 Z"
+                                                    fill="#2D333F"></path>
+                                            </g>
+                                        </svg></span>
+                                </span>
+                                2
+                                <span class="pBCjKaMJcpEY4UICo9ol xNmfnT5SMwe8zLrtbq5U" data-test="icCalendar"
+                                    data-testid="icCalendar"><svg viewBox="0 0 24 24" class="small-marker"
+                                        xmlns="http://www.w3.org/2000/svg" focusable="false">
+                                        <g fill="none" fill-rule="evenodd">
+                                            <path
+                                                d="M17,5 L19,5 C20.1045695,5 21,5.8954305 21,7 L21,19 C21,20.1045695 20.1045695,21 19,21 L5,21 C3.8954305,21 3,20.1045695 3,19 L3,7 C3,5.8954305 3.8954305,5 5,5 L7,5 L7,4 C7,3.44771525 7.44771525,3 8,3 C8.55228475,3 9,3.44771525 9,4 L9,5 L15,5 L15,4 C15,3.44771525 15.4477153,3 16,3 C16.5522847,3 17,3.44771525 17,4 L17,5 Z M19,9 L19,7 L5,7 L5,9 L19,9 Z M19,11 L5,11 L5,19 L19,19 L19,11 Z"
+                                                fill="#2D333F"></path>
+                                        </g>
+                                    </svg></span>
+                                8月5日 週四下午6:30
                             </p>
                             <div class="scoreForRest my-2">
                                 留下評論
@@ -327,58 +465,62 @@
 
             <div class="liked-rest">
                 <h2>珍藏餐廳</h2>
-                <div class="order-rest-card-div d-flex flex-wrap" style="border: 1px solid #ccc; border-radius: 10px;">
-                    <img src="pizza.png" class="col-12 col-md-3 object-fit-cover h-auto"
+
+                <div class="liked-rest-card-div">
+                    <a href="#" class="w-100 h-100 d-flex flex-wrap liked-rest-card-a">
+                        <img src="pizza.png" class="col-12 col-md-3 object-fit-cover h-auto"
                         style="height: 100px; border-radius: 8px;">
-                    <div class="card-body col-12 col-md-6 d-flex flex-wrap justify-content-between">
-                        <div>
-                            <h5 class="card-title my-2">金色三麥 板橋店</h5>
-                            <p class="card-text my-3">
-                                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" focusable="false"
-                                    class="small-marker">
-                                    <g fill="none" fill-rule="evenodd">
+                        <div class="card-body col-12 col-md-6 d-flex flex-wrap justify-content-between">
+                            <div>
+                                <h5 class="card-title my-2">金色三麥 板橋店</h5>
+                                <p class="card-text my-3">
+                                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" focusable="false"
+                                        class="small-marker">
+                                        <g fill="none" fill-rule="evenodd">
+                                            <path
+                                                d="M7,2.99987873 L17,2.99987873 C18.1045695,2.99987873 19,3.89530923 19,4.99987873 L19,20.6055572 C19,20.8816996 18.7761424,21.1055572 18.5,21.1055572 C18.421402,21.1055572 18.343911,21.0870278 18.273815,21.0514724 L12,17.8691561 L5.72618504,21.0514724 C5.4799129,21.1763909 5.17900339,21.0780144 5.05408484,20.8317423 C5.01852946,20.7616462 5,20.6841552 5,20.6055572 L5,4.99987873 C5,3.89530923 5.8954305,2.99987873 7,2.99987873 Z"
+                                                fill="#2D333F"></path>
+                                        </g>
+                                    </svg>
+                                    從珍藏餐廳中移除
+                                </p>
+                                <div class="scoreForRest my-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" height="1em"
+                                        viewBox="0 0 576 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
                                         <path
-                                            d="M7,2.99987873 L17,2.99987873 C18.1045695,2.99987873 19,3.89530923 19,4.99987873 L19,20.6055572 C19,20.8816996 18.7761424,21.1055572 18.5,21.1055572 C18.421402,21.1055572 18.343911,21.0870278 18.273815,21.0514724 L12,17.8691561 L5.72618504,21.0514724 C5.4799129,21.1763909 5.17900339,21.0780144 5.05408484,20.8317423 C5.01852946,20.7616462 5,20.6841552 5,20.6055572 L5,4.99987873 C5,3.89530923 5.8954305,2.99987873 7,2.99987873 Z"
-                                            fill="#2D333F"></path>
-                                    </g>
-                                </svg>
-                                從珍藏餐廳中移除
-                            </p>
-                            <div class="scoreForRest my-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" height="1em"
-                                    viewBox="0 0 576 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
-                                    <path
-                                        d="M287.9 0c9.2 0 17.6 5.2 21.6 13.5l68.6 141.3 153.2 22.6c9 1.3 16.5 7.6 19.3 16.3s.5 18.1-5.9 24.5L433.6 328.4l26.2 155.6c1.5 9-2.2 18.1-9.6 23.5s-17.3 6-25.3 1.7l-137-73.2L151 509.1c-8.1 4.3-17.9 3.7-25.3-1.7s-11.2-14.5-9.7-23.5l26.2-155.6L31.1 218.2c-6.5-6.4-8.7-15.9-5.9-24.5s10.3-14.9 19.3-16.3l153.2-22.6L266.3 13.5C270.4 5.2 278.7 0 287.9 0zm0 79L235.4 187.2c-3.5 7.1-10.2 12.1-18.1 13.3L99 217.9 184.9 303c5.5 5.5 8.1 13.3 6.8 21L171.4 443.7l105.2-56.2c7.1-3.8 15.6-3.8 22.6 0l105.2 56.2L384.2 324.1c-1.3-7.7 1.2-15.5 6.8-21l85.9-85.1L358.6 200.5c-7.8-1.2-14.6-6.1-18.1-13.3L287.9 79z" />
-                                </svg>
-                                <svg xmlns="http://www.w3.org/2000/svg" height="1em"
-                                    viewBox="0 0 576 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
-                                    <path
-                                        d="M287.9 0c9.2 0 17.6 5.2 21.6 13.5l68.6 141.3 153.2 22.6c9 1.3 16.5 7.6 19.3 16.3s.5 18.1-5.9 24.5L433.6 328.4l26.2 155.6c1.5 9-2.2 18.1-9.6 23.5s-17.3 6-25.3 1.7l-137-73.2L151 509.1c-8.1 4.3-17.9 3.7-25.3-1.7s-11.2-14.5-9.7-23.5l26.2-155.6L31.1 218.2c-6.5-6.4-8.7-15.9-5.9-24.5s10.3-14.9 19.3-16.3l153.2-22.6L266.3 13.5C270.4 5.2 278.7 0 287.9 0zm0 79L235.4 187.2c-3.5 7.1-10.2 12.1-18.1 13.3L99 217.9 184.9 303c5.5 5.5 8.1 13.3 6.8 21L171.4 443.7l105.2-56.2c7.1-3.8 15.6-3.8 22.6 0l105.2 56.2L384.2 324.1c-1.3-7.7 1.2-15.5 6.8-21l85.9-85.1L358.6 200.5c-7.8-1.2-14.6-6.1-18.1-13.3L287.9 79z" />
-                                </svg>
-                                <svg xmlns="http://www.w3.org/2000/svg" height="1em"
-                                    viewBox="0 0 576 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
-                                    <path
-                                        d="M287.9 0c9.2 0 17.6 5.2 21.6 13.5l68.6 141.3 153.2 22.6c9 1.3 16.5 7.6 19.3 16.3s.5 18.1-5.9 24.5L433.6 328.4l26.2 155.6c1.5 9-2.2 18.1-9.6 23.5s-17.3 6-25.3 1.7l-137-73.2L151 509.1c-8.1 4.3-17.9 3.7-25.3-1.7s-11.2-14.5-9.7-23.5l26.2-155.6L31.1 218.2c-6.5-6.4-8.7-15.9-5.9-24.5s10.3-14.9 19.3-16.3l153.2-22.6L266.3 13.5C270.4 5.2 278.7 0 287.9 0zm0 79L235.4 187.2c-3.5 7.1-10.2 12.1-18.1 13.3L99 217.9 184.9 303c5.5 5.5 8.1 13.3 6.8 21L171.4 443.7l105.2-56.2c7.1-3.8 15.6-3.8 22.6 0l105.2 56.2L384.2 324.1c-1.3-7.7 1.2-15.5 6.8-21l85.9-85.1L358.6 200.5c-7.8-1.2-14.6-6.1-18.1-13.3L287.9 79z" />
-                                </svg>
-                                <svg xmlns="http://www.w3.org/2000/svg" height="1em"
-                                    viewBox="0 0 576 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
-                                    <path
-                                        d="M287.9 0c9.2 0 17.6 5.2 21.6 13.5l68.6 141.3 153.2 22.6c9 1.3 16.5 7.6 19.3 16.3s.5 18.1-5.9 24.5L433.6 328.4l26.2 155.6c1.5 9-2.2 18.1-9.6 23.5s-17.3 6-25.3 1.7l-137-73.2L151 509.1c-8.1 4.3-17.9 3.7-25.3-1.7s-11.2-14.5-9.7-23.5l26.2-155.6L31.1 218.2c-6.5-6.4-8.7-15.9-5.9-24.5s10.3-14.9 19.3-16.3l153.2-22.6L266.3 13.5C270.4 5.2 278.7 0 287.9 0zm0 79L235.4 187.2c-3.5 7.1-10.2 12.1-18.1 13.3L99 217.9 184.9 303c5.5 5.5 8.1 13.3 6.8 21L171.4 443.7l105.2-56.2c7.1-3.8 15.6-3.8 22.6 0l105.2 56.2L384.2 324.1c-1.3-7.7 1.2-15.5 6.8-21l85.9-85.1L358.6 200.5c-7.8-1.2-14.6-6.1-18.1-13.3L287.9 79z" />
-                                </svg>
-                                <svg xmlns="http://www.w3.org/2000/svg" height="1em"
-                                    viewBox="0 0 576 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
-                                    <path
-                                        d="M287.9 0c9.2 0 17.6 5.2 21.6 13.5l68.6 141.3 153.2 22.6c9 1.3 16.5 7.6 19.3 16.3s.5 18.1-5.9 24.5L433.6 328.4l26.2 155.6c1.5 9-2.2 18.1-9.6 23.5s-17.3 6-25.3 1.7l-137-73.2L151 509.1c-8.1 4.3-17.9 3.7-25.3-1.7s-11.2-14.5-9.7-23.5l26.2-155.6L31.1 218.2c-6.5-6.4-8.7-15.9-5.9-24.5s10.3-14.9 19.3-16.3l153.2-22.6L266.3 13.5C270.4 5.2 278.7 0 287.9 0zm0 79L235.4 187.2c-3.5 7.1-10.2 12.1-18.1 13.3L99 217.9 184.9 303c5.5 5.5 8.1 13.3 6.8 21L171.4 443.7l105.2-56.2c7.1-3.8 15.6-3.8 22.6 0l105.2 56.2L384.2 324.1c-1.3-7.7 1.2-15.5 6.8-21l85.9-85.1L358.6 200.5c-7.8-1.2-14.6-6.1-18.1-13.3L287.9 79z" />
-                                </svg>
+                                            d="M287.9 0c9.2 0 17.6 5.2 21.6 13.5l68.6 141.3 153.2 22.6c9 1.3 16.5 7.6 19.3 16.3s.5 18.1-5.9 24.5L433.6 328.4l26.2 155.6c1.5 9-2.2 18.1-9.6 23.5s-17.3 6-25.3 1.7l-137-73.2L151 509.1c-8.1 4.3-17.9 3.7-25.3-1.7s-11.2-14.5-9.7-23.5l26.2-155.6L31.1 218.2c-6.5-6.4-8.7-15.9-5.9-24.5s10.3-14.9 19.3-16.3l153.2-22.6L266.3 13.5C270.4 5.2 278.7 0 287.9 0zm0 79L235.4 187.2c-3.5 7.1-10.2 12.1-18.1 13.3L99 217.9 184.9 303c5.5 5.5 8.1 13.3 6.8 21L171.4 443.7l105.2-56.2c7.1-3.8 15.6-3.8 22.6 0l105.2 56.2L384.2 324.1c-1.3-7.7 1.2-15.5 6.8-21l85.9-85.1L358.6 200.5c-7.8-1.2-14.6-6.1-18.1-13.3L287.9 79z" />
+                                    </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" height="1em"
+                                        viewBox="0 0 576 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                                        <path
+                                            d="M287.9 0c9.2 0 17.6 5.2 21.6 13.5l68.6 141.3 153.2 22.6c9 1.3 16.5 7.6 19.3 16.3s.5 18.1-5.9 24.5L433.6 328.4l26.2 155.6c1.5 9-2.2 18.1-9.6 23.5s-17.3 6-25.3 1.7l-137-73.2L151 509.1c-8.1 4.3-17.9 3.7-25.3-1.7s-11.2-14.5-9.7-23.5l26.2-155.6L31.1 218.2c-6.5-6.4-8.7-15.9-5.9-24.5s10.3-14.9 19.3-16.3l153.2-22.6L266.3 13.5C270.4 5.2 278.7 0 287.9 0zm0 79L235.4 187.2c-3.5 7.1-10.2 12.1-18.1 13.3L99 217.9 184.9 303c5.5 5.5 8.1 13.3 6.8 21L171.4 443.7l105.2-56.2c7.1-3.8 15.6-3.8 22.6 0l105.2 56.2L384.2 324.1c-1.3-7.7 1.2-15.5 6.8-21l85.9-85.1L358.6 200.5c-7.8-1.2-14.6-6.1-18.1-13.3L287.9 79z" />
+                                    </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" height="1em"
+                                        viewBox="0 0 576 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                                        <path
+                                            d="M287.9 0c9.2 0 17.6 5.2 21.6 13.5l68.6 141.3 153.2 22.6c9 1.3 16.5 7.6 19.3 16.3s.5 18.1-5.9 24.5L433.6 328.4l26.2 155.6c1.5 9-2.2 18.1-9.6 23.5s-17.3 6-25.3 1.7l-137-73.2L151 509.1c-8.1 4.3-17.9 3.7-25.3-1.7s-11.2-14.5-9.7-23.5l26.2-155.6L31.1 218.2c-6.5-6.4-8.7-15.9-5.9-24.5s10.3-14.9 19.3-16.3l153.2-22.6L266.3 13.5C270.4 5.2 278.7 0 287.9 0zm0 79L235.4 187.2c-3.5 7.1-10.2 12.1-18.1 13.3L99 217.9 184.9 303c5.5 5.5 8.1 13.3 6.8 21L171.4 443.7l105.2-56.2c7.1-3.8 15.6-3.8 22.6 0l105.2 56.2L384.2 324.1c-1.3-7.7 1.2-15.5 6.8-21l85.9-85.1L358.6 200.5c-7.8-1.2-14.6-6.1-18.1-13.3L287.9 79z" />
+                                    </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" height="1em"
+                                        viewBox="0 0 576 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                                        <path
+                                            d="M287.9 0c9.2 0 17.6 5.2 21.6 13.5l68.6 141.3 153.2 22.6c9 1.3 16.5 7.6 19.3 16.3s.5 18.1-5.9 24.5L433.6 328.4l26.2 155.6c1.5 9-2.2 18.1-9.6 23.5s-17.3 6-25.3 1.7l-137-73.2L151 509.1c-8.1 4.3-17.9 3.7-25.3-1.7s-11.2-14.5-9.7-23.5l26.2-155.6L31.1 218.2c-6.5-6.4-8.7-15.9-5.9-24.5s10.3-14.9 19.3-16.3l153.2-22.6L266.3 13.5C270.4 5.2 278.7 0 287.9 0zm0 79L235.4 187.2c-3.5 7.1-10.2 12.1-18.1 13.3L99 217.9 184.9 303c5.5 5.5 8.1 13.3 6.8 21L171.4 443.7l105.2-56.2c7.1-3.8 15.6-3.8 22.6 0l105.2 56.2L384.2 324.1c-1.3-7.7 1.2-15.5 6.8-21l85.9-85.1L358.6 200.5c-7.8-1.2-14.6-6.1-18.1-13.3L287.9 79z" />
+                                    </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" height="1em"
+                                        viewBox="0 0 576 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                                        <path
+                                            d="M287.9 0c9.2 0 17.6 5.2 21.6 13.5l68.6 141.3 153.2 22.6c9 1.3 16.5 7.6 19.3 16.3s.5 18.1-5.9 24.5L433.6 328.4l26.2 155.6c1.5 9-2.2 18.1-9.6 23.5s-17.3 6-25.3 1.7l-137-73.2L151 509.1c-8.1 4.3-17.9 3.7-25.3-1.7s-11.2-14.5-9.7-23.5l26.2-155.6L31.1 218.2c-6.5-6.4-8.7-15.9-5.9-24.5s10.3-14.9 19.3-16.3l153.2-22.6L266.3 13.5C270.4 5.2 278.7 0 287.9 0zm0 79L235.4 187.2c-3.5 7.1-10.2 12.1-18.1 13.3L99 217.9 184.9 303c5.5 5.5 8.1 13.3 6.8 21L171.4 443.7l105.2-56.2c7.1-3.8 15.6-3.8 22.6 0l105.2 56.2L384.2 324.1c-1.3-7.7 1.2-15.5 6.8-21l85.9-85.1L358.6 200.5c-7.8-1.2-14.6-6.1-18.1-13.3L287.9 79z" />
+                                    </svg>
+                                </div>
+                                <p>美式料理|新北市/板橋區</p>
                             </div>
-                            <p>美式料理|新北市/板橋區</p>
+                            <button type="button" class="btn btn-danger my-5 p-3">立即訂位</button>
                         </div>
-                        <button type="button" class="btn btn-danger my-5 p-3">立即訂位</button>
-                    </div>
+                    </a>
+
                 </div>
 
             </div>
-
+            
             <div class="about-me">
                 <h2>關於我 <a href="#">隱私權政策</a></h2>
                 <div class="mb-3">
@@ -521,23 +663,24 @@
 
                 <div class="mb-3 col-12">
                     <label for="FoodPrefer">飲食偏好</label>
+                    <div data-test="tag">
+                        <input type="checkbox" id="無麩質" value="無麩質">
+                        <label for="無麩質" class=" p-2" style="border: 1px solid #CCC; border-radius:15px;">無麩質</label>
+                        <input type="checkbox" id="無紅肉" value="無紅肉">
+                        <label for="無紅肉" class=" p-2" style="border: 1px solid #CCC; border-radius:15px;">無紅肉</label>
+                        <input type="checkbox" id="海鮮素" value="海鮮素">
+                        <label for="海鮮素" class=" p-2" style="border: 1px solid #CCC; border-radius:15px;">海鮮素</label>
+                        <input type="checkbox" id="純素" value="純素">
+                        <label for="純素" class=" p-2" style="border: 1px solid #CCC; border-radius:15px;">純素</label>
+                        <input type="checkbox" id="素食" value="素食">
+                        <label for="素食" class=" p-2" style="border: 1px solid #CCC; border-radius:15px;">素食</label>
+                        <input type="checkbox" id="不含堅果類" value="不含堅果類">
+                        <label for="不含堅果類" class=" p-2" style="border: 1px solid #CCC; border-radius:15px;">不含堅果類</label>
+                        <input type="checkbox" id="不含乳製品" value="不含乳製品">
+                        <label for="不含乳製品" class=" p-2" style="border: 1px solid #CCC; border-radius:15px;">不含乳製品</label>
+                    </div>
                 </div>
-                <div data-test="tag">
-                    <input type="checkbox" id="無麩質" value="無麩質">
-                    <label for="無麩質" class=" p-2" style="border: 1px solid #CCC; border-radius:15px;">無麩質</label>
-                    <input type="checkbox" id="無紅肉" value="無紅肉">
-                    <label for="無紅肉" class=" p-2" style="border: 1px solid #CCC; border-radius:15px;">無紅肉</label>
-                    <input type="checkbox" id="海鮮素" value="海鮮素">
-                    <label for="海鮮素" class=" p-2" style="border: 1px solid #CCC; border-radius:15px;">海鮮素</label>
-                    <input type="checkbox" id="純素" value="純素">
-                    <label for="純素" class=" p-2" style="border: 1px solid #CCC; border-radius:15px;">純素</label>
-                    <input type="checkbox" id="素食" value="素食">
-                    <label for="素食" class=" p-2" style="border: 1px solid #CCC; border-radius:15px;">素食</label>
-                    <input type="checkbox" id="不含堅果類" value="不含堅果類">
-                    <label for="不含堅果類" class=" p-2" style="border: 1px solid #CCC; border-radius:15px;">不含堅果類</label>
-                    <input type="checkbox" id="不含乳製品" value="不含乳製品">
-                    <label for="不含乳製品" class=" p-2" style="border: 1px solid #CCC; border-radius:15px;">不含乳製品</label>
-                </div>
+                
                 <div class="mb-3">
                     <label for="exampleFormControlTextarea1" class="form-label">特殊要求</label>
                     <textarea class="form-control" placeholder="新增特殊要求" id="exampleFormControlTextarea1"
@@ -546,7 +689,158 @@
                 </div>
                 <button type="button" class="btn btn-danger col-12">儲存變更</button>
             </div>
+
+            <div class="perfer-setting">
+                <section class="eating-prefer-setting">
+                    <h3>用餐偏好設定</h3>
+                    <div class="eating-experience">
+                        <h4>自訂用餐體驗</h4>
+                        <div class="form-check share-eating-prefer-to-us">
+                            <input class="form-check-input" type="checkbox" value="" id="share-eating-prefer-to-us">
+                            <label class="form-check-label" for="share-eating-prefer-to-us">
+                                與餐飲集團分享你的用餐資訊。
+                            </label>
+                            <p>我們需要在你訂位時與餐廳分享部分資訊，以確保你的訂位有留下紀錄，相關規範均如我們的<a href="#"
+                                    style="color: red;">隱私權政策</a>所述。有些隸屬於大型餐飲集團的餐廳可能會要求OpenTable分享你的資訊，藉此在你往後預訂同一餐飲集團的旗下餐廳時改善與量身打造用餐體驗。你可以選擇不讓餐廳與其所屬餐飲集團分享你的用餐資訊。
+                            </p>
+                        </div>
+                        <div class="form-check share-eating-prefer-to-partners">
+                            <input class="form-check-input" type="checkbox" value=""
+                                id="share-eating-prefer-to-partners">
+                            <label class="form-check-label" for="share-eating-prefer-to-partners">
+                                允許餐廳與合作夥伴、關係企業分享你的用餐資訊，藉此提供你更美好的用餐體驗，其中包含量身打造的優惠和促銷活動。請參閱<a href="#"
+                                    style="color: red;">隱私權政策</a>來了解詳情。
+                            </label>
+                        </div>
+                        <div class="form-check share-eating-prefer-to-restaurants">
+                            <input class="form-check-input" type="checkbox" value=""
+                                id="share-eating-prefer-to-restaurants">
+                            <label class="form-check-label" for="share-eating-prefer-to-restaurants">
+                                與餐廳分享你的個人檔案，獲得量身打造的用餐體驗。
+                            </label>
+                        </div>
+                    </div>
+                    <div class="third-shared">
+                        <h4>第三方共享</h4>
+                        <p>我們會依照<a href="#" style="color: red;">隱私權政策</a>的規範來分享你的個人資訊，藉此允許第三方提供與你相關的行銷和優惠資訊。你可以出於下列目的更改個人資訊的共享方式：
+                        </p>
+                        <div class="form-check share-personal-info-to-us">
+                            <input class="form-check-input" type="checkbox" value="" id="share-personal-info-to-us">
+                            <label class="form-check-label" for="share-personal-info-to-us">
+                                與我們集團的公司分享。
+                            </label>
+                        </div>
+                        <div class="form-check share-personal-info-to-partners">
+                            <input class="form-check-input" type="checkbox" value="" id="share-personal-info-to-partners">
+                            <label class="form-check-label" for="share-personal-info-to-partners">
+                                與其他第三方商業合作夥伴分享。
+                            </label>
+                        </div>
+                    </div>
+                    <div class="sale-info">
+                        <h4>銷售點資訊</h4>
+                        <div class="form-check permit-using-sale-info">
+                            <input class="form-check-input" type="checkbox" value=""
+                                id="permit-using-sale-info">
+                            <label class="form-check-label" for="permit-using-sale-info">
+                                允許OpenTable使用銷售點資訊。
+                            </label>
+                            <p>此外，OpenTable可以為其自身目的，透過合作餐廳的銷售點終端機接收你的用餐體驗資訊。我們會分析並彙整資訊，讓餐廳了解客戶的用餐情形，相關規範均如我們的<a href="#"
+                                style="color: red;">隱私權政策</a>所述。我們也會遵循<a href="#"
+                                style="color: red;">隱私權政策</a>中所述目的來運用接收到的資訊。如果你不希望我們依照自身目的來運用這類資訊，你可以關閉該選項。</p>
+                        </div>
+                    </div>
+                </section>
+                <section class="contact-perfer-setting">
+                    <h3>通訊偏好設定</h3>
+                    <div class="ad-email">
+                        <h4>宣傳電子郵件</h4>
+                        <div class="form-check best-recommend-list">
+                            <input class="form-check-input" type="checkbox" value=""
+                                id="best-recommend-list">
+                            <label class="form-check-label" for="best-recommend-list">
+                                最佳推薦清單<span> 即時掌握目前的人氣餐廳、精選和必訪名單。</span>
+                            </label>  
+                        </div>
+                        <div class="form-check favorite-chef">
+                            <input class="form-check-input" type="checkbox" value=""
+                                id="favorite-chef">
+                            <label class="form-check-label" for="favorite-chef">
+                                Openable Insider。<span> 從主廚的最愛到我們最愛的主廚，Insider電子報帶你掌握所有美食趨勢。</span>
+                            </label>  
+                        </div>
+                        <div class="form-check new-restaurant">
+                            <input class="form-check-input" type="checkbox" value=""
+                                id="new-restaurant">
+                            <label class="form-check-label" for="new-restaurant">
+                                新加入Openable的餐廳。<span> 搶先嘗試Openable的新秀餐廳</span>
+                            </label>  
+                        </div>
+                        <div class="form-check products-news">
+                            <input class="form-check-input" type="checkbox" value=""
+                                id="products-news">
+                            <label class="form-check-label" for="products-news">
+                                Openable最新資訊。<span> 學習如何充分利用你的積分、接收節日提醒、查看專門為你做出的推薦等等。</span>
+                            </label>  
+                        </div>
+                        <div class="form-check restaurant-week">
+                            <input class="form-check-input" type="checkbox" value=""
+                                id="restaurant-week">
+                            <label class="form-check-label" for="restaurant-week">
+                                餐廳週。<span> 獲得關於餐廳週和其他當地餐飲活動的消息。</span>
+                            </label>  
+                        </div>
+                        <div class="form-check special-and-discount">
+                            <input class="form-check-input" type="checkbox" value=""
+                                id="special-and-discount">
+                            <label class="form-check-label" for="special-and-discount">
+                                特惠和優惠。<span> 接收來自人氣餐廳的特惠和優惠，包括由OpenTable食客獨享的專屬優惠。</span>
+                            </label>  
+                        </div>
+
+                    </div>
+                    <div class="booking-email">
+                        <h4>訂位電子郵件</h4>
+                        <div class="form-check restaurant-comments">
+                            <input class="form-check-input" type="checkbox" value=""
+                                id="restaurant-comments">
+                            <label class="form-check-label" for="restaurant-comments">
+                                餐廳評論。<span> 輕輕鬆鬆為你的用餐體驗撰寫評論。另外，還可以即時獲得所有跟餐廳評論有關的資訊。</span>
+                            </label>  
+                        </div>
+                    </div>
+                    <div class="send-message">
+                        <h4>簡訊</h4>
+                        <div class="form-check accept-booking-remind">
+                            <input class="form-check-input" type="checkbox" value=""
+                                id="accept-booking-remind">
+                            <label class="form-check-label" for="accept-booking-remind">
+                                接收訂位更新和提醒訊息(可能會收取標準簡訊費用)
+                            </label>  
+                        </div>
+                        <div class="form-check waiting-list-remind">
+                            <input class="form-check-input" type="checkbox" value=""
+                                id="waiting-list-remind">
+                            <label class="form-check-label" for="waiting-list-remind">
+                                當你的名字在等候名單上時接收訂位更新訊息。這項服務需要使用等候名單功能（可能會收取標準簡訊費用）
+                            </label>  
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <div class="payment-method">
+                <h2>付款方式</h2>
+                <div class="need-add-payment-method text-center">
+                    <img src="./pay.svg" alt="pay-picture">
+                    <h5>未加入付款方式</h5>
+                    <p>在帳戶中新增付款卡，以便在保留訂位、訂購外帶和體驗等項目時加快結帳速度。</p>
+                    <button type="button" class="btn btn-danger col-2">新增付款方式</button>
+                </div>
+            </div>
         </div>
+
+
     </div>
 
 

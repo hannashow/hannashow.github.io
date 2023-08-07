@@ -1,0 +1,360 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <style>
+            * {
+                padding: 0;
+                margin: 0;
+                list-style: none;
+                color: #222222;
+                font-size: 12px;
+            }
+            body{
+                background-color: #f7f7f7;
+            }
+            header {
+                
+                background-color: #fff;
+                border-bottom: 1px solid #CCC;
+                padding: 20px;
+                max-width: 1000px;
+                margin: auto;
+            }
+    
+       
+            .main {
+                padding: 20px;
+                max-width: 1000px;
+                margin: auto;
+            }
+    
+    
+            a {
+                text-decoration: none;
+                color: #222222;
+            }
+    
+            h1 {
+                font-size: 32px;
+                font-weight: 700;
+                line-height: 36px;
+                margin: 0 0 16px 8px;
+            }
+            h2{
+                font-weight: bold;
+                margin-bottom: 15px;
+            }
+            h3{
+                font-weight: bold;
+                margin-bottom: 15px;
+            }
+            h4{
+                color:#9e9e9e;
+                font-size: 14px;
+            }
+            li {
+                font-size: 14px;
+            }
+            .user-pictureSet{
+                width: 100px;
+                height: 100px; 
+                position: relative;
+            }
+            .user-Info {
+                text-align: center;
+            }
+    
+            .small-marker {
+                width: 20px;
+                height: 20px;
+            }
+            .person-pic{
+                width: 100px;
+                height: 100px;
+                display: flex;
+                background-color: pink;
+                border-radius: 50%;
+                border: 2px solid #ccc;
+                background-image: url();
+            }
+            .inner-person-pic{
+                width: 30%;
+                height: 30%;
+                margin: auto;
+            }
+            .add-pic{
+                width: 30px;
+                height: 30px; 
+                background-color: #fff;
+                position: absolute;
+                right: 0px;
+                bottom: 0px;
+                border-radius: 50%;
+                border: 1px solid #ccc;
+            }
+            .user-nav-ul{
+                display: flex;
+                justify-content: space-around;
+                left:0px;
+                
+            }
+            .rest-pic {
+                Object-fit: cover;
+                overflow: hidden;
+            }
+    
+            .order-rest-card-div,.liked-rest-card-div {
+                margin: 15px;
+                border: 1px solid #ccc;
+                 border-radius: 10px;
+            }
+    
+            .order-rest-card-a,.liked-rest-card-a {
+                padding: 10px;
+                box-sizing: border-box;
+            }
+            
+            .card-body {
+                padding: 10px;
+            }
+            .recently-orders,.past-orders,.liked-rest,.about-me,.perfer-setting,.payment-method{
+                background-color: #fff;
+                padding: 15px;
+                margin: 15px;
+            }
+            .about-me>div{
+                margin-bottom: 15px;
+            }
+            .perfer-setting .form-check{
+                margin-bottom: 15px;
+            }
+        </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="user-Info m-auto d-flex flex-wrap justify-content-center justify-content-md-start">
+            <div class="user-pictureSet my-auto">
+                <div class="person-pic">
+                    <div class="inner-person-pic" >
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" focusable="false">
+                            <g fill="none" fill-rule="evenodd">
+                                <path
+                                    d="M14.5734892,12.2877361 C17.0042328,12.8819383 18.7345621,14.3964534 19.7644773,16.8312813 C19.9208947,17.2010684 20.0014914,17.5984917 20.0014914,18 C20.0014914,19.6568477 18.658351,20.9999882 17.0015032,20.9999882 L6.99926923,21 C6.59776067,21 6.2003371,20.9194033 5.83054967,20.7629859 C4.3045986,20.1175199 3.59082441,18.3572386 4.23628386,16.8312848 C5.26612228,14.3966359 6.99627139,12.8821638 9.42673118,12.2878687 C7.97272602,11.4134027 7,9.82029752 7,8 C7,5.23857625 9.23857625,3 12,3 C14.7614237,3 17,5.23857625 17,8 C17,9.82020554 16.0273723,11.4132417 14.5734892,12.2877361 Z M12,5 C10.3431458,5 9,6.34314575 9,8 C9,9.65685425 10.3431458,11 12,11 C13.6568542,11 15,9.65685425 15,8 C15,6.34314575 13.6568542,5 12,5 Z M17.9429826,17.6856919 C17.1294316,15.228564 15.1485327,14 12.000286,14 C8.85208947,14 6.87106303,15.2285248 6.05720667,17.6855743 L6.05721876,17.6855783 C5.88356446,18.2098444 6.16779141,18.7756206 6.69205743,18.9492749 C6.79348438,18.9828708 6.89964014,18.9999945 7.00648636,18.9999945 L16.99371,18.9999469 C17.5459684,18.9999469 17.9936623,18.552253 17.9936623,17.9999945 C17.9936623,17.8931928 17.9765523,17.7870807 17.9429826,17.6856919 Z"
+                                    fill="#2D333F"></path>
+                            </g>
+                        </svg>
+                    </div>
+                </div>
+                <div class="add-pic p-2" >
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" focusable="false">
+                        <g fill="none" fill-rule="evenodd">
+                            <path
+                                d="M4,6 L4,5 C4,4.44771525 4.44771525,4 5,4 C5.55228475,4 6,4.44771525 6,5 L6,6 L7,6 C7.55228475,6 8,6.44771525 8,7 C8,7.55228475 7.55228475,8 7,8 L6,8 L6,9 C6,9.55228475 5.55228475,10 5,10 C4.44771525,10 4,9.55228475 4,9 L4,8 L3,8 C2.44771525,8 2,7.55228475 2,7 C2,6.44771525 2.44771525,6 3,6 L4,6 Z M15.1683073,7 L11.0019056,7 C10.4496208,7 10.0019056,6.55228475 10.0019056,6 C10.0019056,5.44771525 10.4496208,5 11.0019056,5 L15.9953845,5 L18,7 L20,7 C21.1045695,7 22,7.8954305 22,9 L22,18 C22,19.1045695 21.1045695,20 20,20 L6,20 C4.8954305,20 4,19.1045695 4,18 L4,13 C4,12.4477153 4.44771525,12 5,12 C5.55228475,12 6,12.4477153 6,13 L6,18 L20,18 L20,9 L17.1729228,9 L15.1683073,7 Z M13,16.5 C11.0670034,16.5 9.5,14.9329966 9.5,13 C9.5,11.0670034 11.0670034,9.5 13,9.5 C14.9329966,9.5 16.5,11.0670034 16.5,13 C16.5,14.9329966 14.9329966,16.5 13,16.5 Z M13,14.5 C13.8284271,14.5 14.5,13.8284271 14.5,13 C14.5,12.1715729 13.8284271,11.5 13,11.5 C12.1715729,11.5 11.5,12.1715729 11.5,13 C11.5,13.8284271 12.1715729,14.5 13,14.5 Z"
+                                fill="#2D333F" fill-rule="nonzero"></path>
+                        </g>
+                    </svg>
+                </div>
+            </div>
+            <div class="user-nameAndInfo">
+                <h1>Hello Hanna :</h1>
+                <span>
+                    <svg viewBox="0 0 24 24" class="small-marker" xmlns="http://www.w3.org/2000/svg" focusable="false">
+                        <g fill="none" fill-rule="evenodd">
+                            <path
+                                d="M12,2 C16.418278,2 20,5.581722 20,10 C20,12.8133333 17.5666667,16.59 12.7,21.33 C12.3111565,21.7111429 11.6888435,21.7111429 11.3,21.33 C6.43333333,16.59 4,12.8133333 4,10 C4,5.581722 7.581722,2 12,2 Z M12,4 C8.6862915,4 6,6.6862915 6,10 C6,11.21 6.8,14 12,19.21 C17.2,14 18,11.21 18,10 C18,6.6862915 15.3137085,4 12,4 Z M12,7 C13.6568542,7 15,8.34314575 15,10 C15,11.6568542 13.6568542,13 12,13 C10.3431458,13 9,11.6568542 9,10 C9,8.34314575 10.3431458,7 12,7 Z M12,9 C11.4477153,9 11,9.44771525 11,10 C11,10.5522847 11.4477153,11 12,11 C12.5522847,11 13,10.5522847 13,10 C13,9.44771525 12.5522847,9 12,9 Z"
+                                fill="#2D333F"></path>
+                        </g>
+                    </svg>
+                    <span>台中市</span>
+                </span>
+                <p>會員開始日期:2023年5月</p>
+            </div>
+        </div>
+    </header>
+    <div class="main col-12 d-flex flex-wrap justify-content-center">
+
+        <nav class="user-nav col-12 col-md-2">
+            <ul class="user-nav-ul p-0 col-12 d-flex flex-wrap justify-content-around" >
+                <li class="d-block col-md-12 my-2">
+                    <a href="./memberPage_booking.html">訂位</a>
+                </li>
+                <li class="d-block col-md-12 my-2">
+                    <a href="./memberPage_liked_rest.html">珍藏餐廳</a>
+                </li>
+                <li class="d-block col-md-12 my-2">
+                    <a href="./memberPage_user_detail.html">帳戶詳細資料</a>
+                </li>
+                <li class="d-block col-md-12 my-2">
+                    <a href="./memberPage_prefer_setting.html">偏好設定</a>
+                </li>
+                <li class="d-block col-md-12 my-2">
+                    <a href="./memberPage_payment.html">付款方式</a>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="order-record col-12 col-md-10 p-1">
+            
+            <div class="perfer-setting">
+                <section class="eating-prefer-setting">
+                    <h3>用餐偏好設定</h3>
+                    <div class="eating-experience">
+                        <h4>自訂用餐體驗</h4>
+                        <div class="form-check share-eating-prefer-to-us">
+                            <input class="form-check-input" type="checkbox" value="" id="share-eating-prefer-to-us">
+                            <label class="form-check-label" for="share-eating-prefer-to-us">
+                                與餐飲集團分享你的用餐資訊。
+                            </label>
+                            <p>我們需要在你訂位時與餐廳分享部分資訊，以確保你的訂位有留下紀錄，相關規範均如我們的<a href="#"
+                                    style="color: red;">隱私權政策</a>所述。有些隸屬於大型餐飲集團的餐廳可能會要求OpenTable分享你的資訊，藉此在你往後預訂同一餐飲集團的旗下餐廳時改善與量身打造用餐體驗。你可以選擇不讓餐廳與其所屬餐飲集團分享你的用餐資訊。
+                            </p>
+                        </div>
+                        <div class="form-check share-eating-prefer-to-partners">
+                            <input class="form-check-input" type="checkbox" value=""
+                                id="share-eating-prefer-to-partners">
+                            <label class="form-check-label" for="share-eating-prefer-to-partners">
+                                允許餐廳與合作夥伴、關係企業分享你的用餐資訊，藉此提供你更美好的用餐體驗，其中包含量身打造的優惠和促銷活動。請參閱<a href="#"
+                                    style="color: red;">隱私權政策</a>來了解詳情。
+                            </label>
+                        </div>
+                        <div class="form-check share-eating-prefer-to-restaurants">
+                            <input class="form-check-input" type="checkbox" value=""
+                                id="share-eating-prefer-to-restaurants">
+                            <label class="form-check-label" for="share-eating-prefer-to-restaurants">
+                                與餐廳分享你的個人檔案，獲得量身打造的用餐體驗。
+                            </label>
+                        </div>
+                    </div>
+                    <div class="third-shared">
+                        <h4>第三方共享</h4>
+                        <p>我們會依照<a href="#" style="color: red;">隱私權政策</a>的規範來分享你的個人資訊，藉此允許第三方提供與你相關的行銷和優惠資訊。你可以出於下列目的更改個人資訊的共享方式：
+                        </p>
+                        <div class="form-check share-personal-info-to-us">
+                            <input class="form-check-input" type="checkbox" value="" id="share-personal-info-to-us">
+                            <label class="form-check-label" for="share-personal-info-to-us">
+                                與我們集團的公司分享。
+                            </label>
+                        </div>
+                        <div class="form-check share-personal-info-to-partners">
+                            <input class="form-check-input" type="checkbox" value="" id="share-personal-info-to-partners">
+                            <label class="form-check-label" for="share-personal-info-to-partners">
+                                與其他第三方商業合作夥伴分享。
+                            </label>
+                        </div>
+                    </div>
+                    <div class="sale-info">
+                        <h4>銷售點資訊</h4>
+                        <div class="form-check permit-using-sale-info">
+                            <input class="form-check-input" type="checkbox" value=""
+                                id="permit-using-sale-info">
+                            <label class="form-check-label" for="permit-using-sale-info">
+                                允許OpenTable使用銷售點資訊。
+                            </label>
+                            <p>此外，OpenTable可以為其自身目的，透過合作餐廳的銷售點終端機接收你的用餐體驗資訊。我們會分析並彙整資訊，讓餐廳了解客戶的用餐情形，相關規範均如我們的<a href="#"
+                                style="color: red;">隱私權政策</a>所述。我們也會遵循<a href="#"
+                                style="color: red;">隱私權政策</a>中所述目的來運用接收到的資訊。如果你不希望我們依照自身目的來運用這類資訊，你可以關閉該選項。</p>
+                        </div>
+                    </div>
+                </section>
+                <section class="contact-perfer-setting">
+                    <h3>通訊偏好設定</h3>
+                    <div class="ad-email">
+                        <h4>宣傳電子郵件</h4>
+                        <div class="form-check best-recommend-list">
+                            <input class="form-check-input" type="checkbox" value=""
+                                id="best-recommend-list">
+                            <label class="form-check-label" for="best-recommend-list">
+                                最佳推薦清單<span> 即時掌握目前的人氣餐廳、精選和必訪名單。</span>
+                            </label>  
+                        </div>
+                        <div class="form-check favorite-chef">
+                            <input class="form-check-input" type="checkbox" value=""
+                                id="favorite-chef">
+                            <label class="form-check-label" for="favorite-chef">
+                                Openable Insider。<span> 從主廚的最愛到我們最愛的主廚，Insider電子報帶你掌握所有美食趨勢。</span>
+                            </label>  
+                        </div>
+                        <div class="form-check new-restaurant">
+                            <input class="form-check-input" type="checkbox" value=""
+                                id="new-restaurant">
+                            <label class="form-check-label" for="new-restaurant">
+                                新加入Openable的餐廳。<span> 搶先嘗試Openable的新秀餐廳</span>
+                            </label>  
+                        </div>
+                        <div class="form-check products-news">
+                            <input class="form-check-input" type="checkbox" value=""
+                                id="products-news">
+                            <label class="form-check-label" for="products-news">
+                                Openable最新資訊。<span> 學習如何充分利用你的積分、接收節日提醒、查看專門為你做出的推薦等等。</span>
+                            </label>  
+                        </div>
+                        <div class="form-check restaurant-week">
+                            <input class="form-check-input" type="checkbox" value=""
+                                id="restaurant-week">
+                            <label class="form-check-label" for="restaurant-week">
+                                餐廳週。<span> 獲得關於餐廳週和其他當地餐飲活動的消息。</span>
+                            </label>  
+                        </div>
+                        <div class="form-check special-and-discount">
+                            <input class="form-check-input" type="checkbox" value=""
+                                id="special-and-discount">
+                            <label class="form-check-label" for="special-and-discount">
+                                特惠和優惠。<span> 接收來自人氣餐廳的特惠和優惠，包括由OpenTable食客獨享的專屬優惠。</span>
+                            </label>  
+                        </div>
+
+                    </div>
+                    <div class="booking-email">
+                        <h4>訂位電子郵件</h4>
+                        <div class="form-check restaurant-comments">
+                            <input class="form-check-input" type="checkbox" value=""
+                                id="restaurant-comments">
+                            <label class="form-check-label" for="restaurant-comments">
+                                餐廳評論。<span> 輕輕鬆鬆為你的用餐體驗撰寫評論。另外，還可以即時獲得所有跟餐廳評論有關的資訊。</span>
+                            </label>  
+                        </div>
+                    </div>
+                    <div class="send-message">
+                        <h4>簡訊</h4>
+                        <div class="form-check accept-booking-remind">
+                            <input class="form-check-input" type="checkbox" value=""
+                                id="accept-booking-remind">
+                            <label class="form-check-label" for="accept-booking-remind">
+                                接收訂位更新和提醒訊息(可能會收取標準簡訊費用)
+                            </label>  
+                        </div>
+                        <div class="form-check waiting-list-remind">
+                            <input class="form-check-input" type="checkbox" value=""
+                                id="waiting-list-remind">
+                            <label class="form-check-label" for="waiting-list-remind">
+                                當你的名字在等候名單上時接收訂位更新訊息。這項服務需要使用等候名單功能（可能會收取標準簡訊費用）
+                            </label>  
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
