@@ -14,9 +14,11 @@
         .container {
             margin: 20px;
         }
+
         i {
             font-size: 30px;
         }
+
         [box-id] {
             border: 2px solid #ccc;
             height: 80px;
@@ -56,7 +58,7 @@
 
         .scoreboard {
             display: flex;
-            justify-content:center;
+            justify-content: center;
             align-items: center;
             font-size: 20px;
             font-weight: bolder;
@@ -77,7 +79,17 @@
             height: 100%;
         }
     </style>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GQMZYFML0W"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-GQMZYFML0W');
+    </script>
 </head>
+
 
 <body>
 
@@ -135,15 +147,16 @@
                     <input class="form-check-input" type="radio" name="flexRadioDefault" id="fish-card" value="fish">
                     <label class="form-check-label" for="fish-card">
                         <i class="fa-solid fa-fish" style="color:#42f5a2;"></i>
-                    <p>-5</p>
+                        <p>-5</p>
                     </label>
                 </div>
 
                 <div class="form-check score-icon">
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="shrimp-card" value="shrimp">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="shrimp-card"
+                        value="shrimp">
                     <label class="form-check-label" for="shrimp-card">
                         <i class="fa-solid fa-shrimp" style="color:#e82121;"></i>
-                    <p>+2</p>
+                        <p>+2</p>
                     </label>
                 </div>
 
@@ -481,7 +494,7 @@
 
         //Start Button
         document.querySelector('button').addEventListener('click', function () {
-            totalScore.innerText=parseInt(totalScore.innerText)-2;
+            totalScore.innerText = parseInt(totalScore.innerText) - 2;
             speed = 30;
 
             let random = Math.floor(Math.random() * brickData.length) + 1;
@@ -524,11 +537,11 @@
             // }
         }
 
-        document.querySelectorAll('input').forEach(x=>{
-            x.addEventListener('click',cardSelected.bind(event,x.value))
+        document.querySelectorAll('input').forEach(x => {
+            x.addEventListener('click', cardSelected.bind(event, x.value))
         })
-        function cardSelected(x){
-            guessCard=x;
+        function cardSelected(x) {
+            guessCard = x;
         }
 
         function ShowResultAndCalScore() {
@@ -537,8 +550,8 @@
             msgBox.innerText = val;
 
 
-            if(guessCard==val){
-                score.innerText=20;
+            if (guessCard == val) {
+                score.innerText = 20;
             }
             else if (val == 'cat') {
                 score.innerText = 5;
