@@ -504,7 +504,10 @@
         })
 
         //Start Button
-        document.querySelector('button').addEventListener('click', function () {
+        let startGameBtn=document.querySelector('button');
+        startGameBtn.addEventListener('click', function () {
+            startGameBtn.disabled='true';
+
             totalScore.innerText = parseInt(totalScore.innerText) - 2;
             speed = 30;
 
@@ -513,6 +516,7 @@
             steps = random + (2 * bricks.length); //加號後面的算式是為了呈現多跑幾圈才走到獎項
             allSteps = steps;
             turnAround();
+            
         });
 
         function turnAround() {
@@ -530,7 +534,8 @@
             }
             else {
                 //跑完了
-                ShowResultAndCalScore()
+                ShowResultAndCalScore();
+                startGameBtn.disabled=''; //跑完才能讓Start按鈕變回可按的
             }
 
             //變速版本
